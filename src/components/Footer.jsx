@@ -5,7 +5,7 @@ import instagram from '../assets/images/instagram.svg';
 import tiktok from '../assets/images/tiktok.svg';
 import whatsapp from '../assets/images/whatsapp.svg';
 import visa from '../assets/images/visa.svg';
-import mastercard from '../assets/images/mastercard.svg';
+import mastercard from '../assets/images/Mastercard.svg';
 import '../styles/main.css';
 
 const Footer = () => {
