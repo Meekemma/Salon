@@ -1,0 +1,221 @@
+body{
+    overflow-x: hidden;
+    line-height: 16px;
+    background: #F9F9F9 !important;
+    color:#333333 !important;
+
+}
+body.dark-mode {
+  background: #121212 !important; /* Dark background */
+  color: #ffffff !important; /* Light text color */
+}
+h1, h2, h3 {
+  color: #0D6E6E; /* Deep teal for headers */
+}
+a {
+  color: #C19A6B; /* Gold links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFDED7; /* Soft peach on hover */
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        height: auto; /* Adjust height for smaller screens */
+    }
+}
+
+.navbar a { /* Default link color */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 15px;
+    /* color:#333333 Add padding for better spacing */
+}
+
+
+.carousel-container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     /* Assuming a dark background for contrast */
+  }
+  
+  .carousel-image-container {
+    max-width: 100%; /* Ensure it adjusts to screen size */
+    margin-right: 20px; /* Add margin to separate from text */
+  }
+  
+  .carousel-image {
+    width: 100%; /* Make the image responsive */
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .carousel-text-container {
+    max-width: 100%; /* Allow text to take full width on smaller screens */
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  .carousel-title {
+    font-size: 40px; /* Start with a base size */
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .carousel-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    
+  }
+  
+  .carousel-button {
+    border-radius: 50px;
+    color: #c0bdb9;
+    background-color: #1a1b1f;
+    margin: 30px 0;
+    padding: 15px 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-button:hover {
+    background-color: #0e1014;
+  }
+  
+  /* Media queries for responsiveness */
+  
+  /* Large devices (desktops, laptops) */
+  @media (min-width: 1024px) {
+    .carousel-title {
+      font-size: 50px; /* Larger title on bigger screens */
+    }
+  
+    .carousel-description {
+      font-size: 20px;
+    }
+  
+    .carousel-image-container {
+      max-width: 50%; /* Restrict image size on large screens */
+    }
+  
+    .carousel-text-container {
+      max-width: 45%; /* Restrict text size on large screens */
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .carousel-title {
+      font-size: 36px; /* Slightly smaller for tablet screens */
+    }
+  
+    .carousel-description {
+      font-size: 16px;
+    }
+  
+    .carousel-image-container {
+      max-width: 45%; /* Adjust image size for tablet */
+    }
+  
+    .carousel-text-container {
+      max-width: 45%; /* Adjust text size for tablet */
+    }
+  }
+  
+  /* Small devices (mobile phones) */
+  @media (max-width: 767px) {
+    .carousel-title {
+      font-size: 28px; /* Smaller title for mobile */
+    }
+  
+    .carousel-description {
+      font-size: 14px;
+    }
+  
+    .carousel-image-container {
+      max-width: 100%; /* Image takes full width on small screens */
+      margin-bottom: 20px; /* Add space between image and text */
+    }
+  
+    .carousel-text-container {
+      max-width: 100%; /* Text also takes full width */
+      text-align: center; /* Center align text on small screens */
+    }
+  
+    .carousel-button {
+      padding: 10px 30px; /* Make button slightly smaller for mobile */
+    }
+  }
+
+  .gallery-section {
+    background: linear-gradient(135deg, #0D6E6E, #333333); /* Deep Teal to Charcoal gradient */
+    color: #F9F9F9; /* Off-white text for contrast */
+    padding: 50px 0; /* Adjust padding as needed */
+    text-align: center; /* Centers content */
+  }
+  
+  .gallery-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FFDED7; /* Soft Peach for the heading */
+  }
+  
+  .gallery-section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #C19A6B; /* Gold for paragraph text */
+  }
+
+  
+  /* Main Container for Testimonials */
+.test {
+  background-color: #F9F9F9; /* Off-white background for contrast */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  background: linear-gradient(150deg, #0D6E6E, #0c0c0c); /* Deep Teal to Soft Peach gradient */
+  color: #F9F9F9; /* Dark text color */
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-card img {
+  border-radius: 50%; /* Circular avatar */
+}
+
+/* Navigation Button */
+button {
+  background-color: #C19A6B; /* Gold background for buttons */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0D6E6E; /* Darker teal on hover */
+}
+
+  
