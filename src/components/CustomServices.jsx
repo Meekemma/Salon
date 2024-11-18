@@ -14,16 +14,16 @@ const CustomServices = () => {
 
   return (
     <>
-      <div className='container mx-auto px-4 sm:px-8 py-4'>
+      <div className="container mx-auto px-4 sm:px-8 py-4">
         {/* Service navigation */}
-        <div className='flex flex-wrap justify-between space-x-3 sm:flex-nowrap overflow-x-auto'>
+        <div className="flex justify-between sm:flex-nowrap overflow-x-auto whitespace-nowrap scrollbar-hide space-x-6">
           {servicesList.map((service, index) => (
             <div
               key={index}
               onClick={() => handleOnClick(service)}
-              className={`cursor-pointer font-bold text-lg 
+              className={`cursor-pointer font-bold text-lg px-4 
                 ${activeService === service ? 'text-[#C19A6B]' : 'text-gray-600'} 
-                transition-colors duration-300 whitespace-nowrap`}
+                transition-colors duration-300`}
             >
               {service}
             </div>
@@ -31,7 +31,7 @@ const CustomServices = () => {
         </div>
 
         {/* Conditionally render the content based on the active service */}
-        <div className='mt-6'>
+        <div className="mt-6">
           {activeService === 'Haircut' && <Haircut />}
           {activeService === 'Nail Polishing' && <Polishing />}
           {activeService === 'Padicure & Manicure' && <Padicure />}

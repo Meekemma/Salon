@@ -5,6 +5,9 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../styles/main.css';
 import ServicesOverview from './ServicesOverview';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 const CustomeAbout = () => {
   const images = [facebook, whatsapp]; 
@@ -68,9 +71,18 @@ const CustomeAbout = () => {
             >
               {images.map((image, index) => (
                 <div key={index}>
-                  <img 
+                  <LazyLoadImage 
                     src={image} 
                     alt={`carousel-img-${index}`} 
+                    effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
+                    height="100%" 
+                    width="100%" 
+                    wrapperProps={{
+                      style: { 
+                        transitionDelay: "1s", // Wait 1 second before starting the transition effect
+                         // Optional: add styling to the wrapper itself
+                      },
+                    }}
                     className="w-full md:max-w-md lg:max-w-lg mx-auto"
                   />
                 </div>

@@ -11,9 +11,9 @@ import '../styles/main.css';
 const Footer = () => {
   const socialMediaLinks = {
     facebook: 'https://www.facebook.com',
-    instagram: 'https://www.instagram.com',
+    instagram: 'https://www.instagram.com/meeky007/',
     tiktok: 'https://www.tiktok.com',
-    whatsapp: 'https://www.whatsapp.com',
+    whatsapp: 'https://wa.me/+2349076309004',
   };
 
   const quickLinks = [
@@ -75,7 +75,10 @@ const Footer = () => {
           {/* Contact Information */}
           <div>
             <h2 className="text-lg font-bold mb-4">Contact Us</h2>
-            <p className="text-base">Phone: {contactDetails.phone}</p>
+            <p className="text-base">
+              Phone: <a href={`tel:${contactDetails.phone}`} className="underline">{contactDetails.phone}</a>
+            </p>
+
             <p className="text-base">
               Email: <a href={`mailto:${contactDetails.email}`} className="underline">{contactDetails.email}</a>
             </p>
@@ -103,24 +106,27 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Subscription and Payment Methods */}
-        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-center">
-          <div className="text-center md:text-left">
+        <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 items-center">
+          <div className="text-center sm:text-left">
             <h2 className="text-lg font-bold mb-4">Subscribe to Our Newsletter</h2>
-            <form className="flex space-x-2 justify-center md:justify-start">
+            <form className="flex flex-col sm:flex-row space-x-0 sm:space-x-2 justify-center sm:justify-start">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="px-4 py-2 text-gray-900 rounded-md"
+                className="px-4 py-2 text-gray-900 rounded-md mb-2 sm:mb-0"
               />
               <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Subscribe</button>
             </form>
           </div>
-          <div className="flex items-center space-x-4">
+          <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             <span className="text-base">Accepted Payments:</span>
-            <img src={visa} alt="Visa" className="w-10 h-6" />
-            <img src={mastercard} alt="MasterCard" className="w-10 h-6" />
+            <div className="flex space-x-2">
+              <img src={visa} alt="Visa" className="w-10 h-6" />
+              <img src={mastercard} alt="MasterCard" className="w-10 h-6" />
+            </div>
           </div>
         </div>
+
 
         {/* Copyright Section */}
         <div className="mt-4 text-center text-base text-gray-400">

@@ -40,19 +40,48 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-     /* Assuming a dark background for contrast */
+    overflow:hidden;
+    height: 100vh;
   }
   
-  .carousel-image-container {
-    max-width: 100%; /* Ensure it adjusts to screen size */
-    margin-right: 20px; /* Add margin to separate from text */
+  
+  .carousel-image-wrapper {
+    margin-bottom: 20px; 
   }
+  
+
+  .carousel-image-container {
+    max-width: 100%;
+    border-radius: 50px;
+    overflow: hidden; 
+    position: relative;
+  }
+
+
+  .carousel-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire image */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    box-shadow: inset 10px 20px 50px #000000, inset -10px -20px 50px #000000; /* Inner shadow for depth */
+    z-index: 1; /* Overlay above the image */
+    pointer-events: none; /* Allow interaction with underlying content */
+  }
+  
+
+
+  
   
   .carousel-image {
-    width: 100%; /* Make the image responsive */
-    height: auto;
-    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
+  
+
   
   .carousel-text-container {
     max-width: 100%; /* Allow text to take full width on smaller screens */

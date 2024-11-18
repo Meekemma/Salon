@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '../styles/main.css';
-
+``
 const pages = ['Home', 'About', 'Services', 'Contact'];
 const servicesList = ['Haircut', 'Nail Polishing', 'Styling', 'Shaving'];
 

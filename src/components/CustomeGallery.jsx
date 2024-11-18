@@ -6,6 +6,8 @@ import facebook from '../assets/images/facebook.svg';
 import instagram from '../assets/images/instagram.svg';
 import tiktok from '../assets/images/tiktok.svg';
 import whatsapp from '../assets/images/whatsapp.svg';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import '../styles/main.css';
 
 const CustomeGallery = () => {
@@ -46,9 +48,18 @@ const CustomeGallery = () => {
             {images.map((image, index) => (
               <SwiperSlide key={index}>
                 <div className="relative">
-                  <img
+                  <LazyLoadImage
                     src={image}
                     alt={`Slide ${index + 1}`}
+                    effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
+                    height="100%" 
+                    width="100%"
+                    wrapperProps={{
+                      style: { 
+                        transitionDelay: "1s", // Wait 1 second before starting the transition effect
+                        backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
+                      },
+                    }}
                     className="w-full h-90 object-cover rounded-lg" // Reduced image height
                   />
                 </div>

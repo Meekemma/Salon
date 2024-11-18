@@ -1,4 +1,7 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Optional effect
+
 import js from '../assets/images/js.svg';
 import linkedin from '../assets/images/linkedin.svg';
 import redis from '../assets/images/redis.svg';
@@ -9,47 +12,46 @@ import instagram from '../assets/images/instagram.svg';
 import tailwindcss from '../assets/images/tailwindcss.svg';
 import html from '../assets/images/html.svg';
 
-const Haircut = () => {
+const Spa = () => {
   const haircutImages = [
-    js, linkedin, redis, python, 
-    reactjs, twitter, instagram, tailwindcss, html
-  ]; 
-
-  const stylist = [
-    'Dreadlocks', 'Twist-Out', 'Buzz Cut', 'Curly Top', 'Caesar Fade', 
-    'Temple Fade', '360 Waves', 'Frohawk', 'Fade with Part', 'Short Afro', 
-    'Taper Fade', 'Flat Top'
+    { src: js, alt: 'JavaScript' },
+    { src: linkedin, alt: 'LinkedIn' },
+    { src: redis, alt: 'Redis' },
+    { src: python, alt: 'Python' },
+    { src: reactjs, alt: 'ReactJS' },
+    { src: twitter, alt: 'Twitter' },
+    { src: instagram, alt: 'Instagram' },
+    { src: tailwindcss, alt: 'Tailwind CSS' },
+    { src: html, alt: 'HTML' }
   ];
 
   return (
     <>
       <div className="text-center py-6">
-        <h3 className="text-4xl font-bold text-gray-800">Haircut Service</h3>
+        <h3 className="text-4xl font-bold text-gray-800">Spa Service</h3>
         <p className="text-lg text-gray-500 mt-2">
-          Get the best haircut services tailored to your style.
+          Enjoy a clean and professional shaving experience.
         </p>
       </div>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4'>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4">
         {haircutImages.map((image, index) => (
-          <div 
-            key={index} 
-            className='w-full h-64 rounded-lg overflow-hidden shadow-md'>
-            <img 
-              src={image} 
-              alt={`Haircut ${index + 1}`} 
-              className='w-full h-full object-contain'
+          <div key={index} className="w-full h-64 rounded-lg overflow-hidden shadow-md">
+            <LazyLoadImage
+              src={image.src}
+              alt={image.alt}
+              effect="blur"
+              height="100%"
+              width="100%"
+              wrapperProps={{
+                style: { 
+                  transitionDelay: "1s", // Wait 1 second before starting the transition effect
+                  backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
+                },
+              }}
+              className="w-full h-full object-contain"
             />
-          </div>
-        ))}
-      </div>
 
-      <div className='flex flex-wrap justify-center items-center gap-4 mt-6'>
-        {stylist.map((style, index) => (
-          <div 
-            key={index} 
-            className='px-6 py-3 bg-[#0D6E6E] text-white font-semibold rounded-full shadow-md hover:bg-[#C19A6B] transition-colors duration-300 ease-in-out'>
-            {style}
           </div>
         ))}
       </div>
@@ -57,4 +59,4 @@ const Haircut = () => {
   );
 };
 
-export default Haircut;
+export default Spa;

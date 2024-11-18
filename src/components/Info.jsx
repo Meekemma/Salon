@@ -11,7 +11,6 @@ import '../styles/main.css';
 const Info = () => {
   // State to manage dark/light mode
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Get the initial mode from localStorage or default to false (light mode)
     const savedMode = localStorage.getItem('dark-mode');
     return savedMode === 'true';
   });
@@ -24,40 +23,40 @@ const Info = () => {
 
   // Function to toggle dark/light mode
   const toggleDarkMode = () => {
-    setIsDarkMode(prevMode => !prevMode);
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
   return (
-    <div className={`mx-auto px-8 my-3 py-2`}>
+    <div className="mx-auto px-4 my-3 py-2">
       <div className="flex justify-between items-center">
-        
         {/* Left side: Social media icons */}
-        <div className="flex space-x-4">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <img src={facebook} alt="facebook" className="w-6 h-5" />
+        <div className="flex items-center space-x-3">
+          <a href="https://www.facebook.com/profile.php?id=61566949900907" target="_blank" rel="noopener noreferrer">
+            <img src={facebook} alt="facebook" className="h-4 w-4" />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <img src={instagram} alt="instagram" className="w-6 h-5" />
+          <a href="https://www.instagram.com/meeky007/" target="_blank" rel="noopener noreferrer">
+            <img src={instagram} alt="instagram" className="h-4 w-4" />
           </a>
           <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-            <img src={tiktok} alt="tiktok" className="w-6 h-5" />
+            <img src={tiktok} alt="tiktok" className="h-4 w-4" />
           </a>
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
-            <img src={whatsapp} alt="whatsapp" className="w-6 h-5" />
+          <a href="https://wa.me/+2349076309004" target="_blank" rel="noopener noreferrer">
+            <img src={whatsapp} alt="whatsapp" className="h-4 w-4" />
           </a>
         </div>
 
         {/* Right side: Phone icon and number */}
         <div className="flex items-center space-x-2">
-          <Phone className="mr-2" />
-          <span>+123 456 7890</span>
+        <a href="tel:+1234567890" className="flex items-center space-x-2">
+          <Phone style={{ fontSize: '18px' }} className="text-gray-800" />
+          <span className="text-sm whitespace-nowrap">+123 456 7890</span>
+        </a>
 
-          {/* Toggle icon for dark/light mode */}
           <div onClick={toggleDarkMode} className="cursor-pointer">
             {isDarkMode ? (
-              <Brightness7Icon className="text-yellow-500" /> // Sun icon for light mode
+              <Brightness7Icon className="text-yellow-500 text-sm" />
             ) : (
-              <Brightness4Icon className="text-gray-800" /> // Moon icon for dark mode
+              <Brightness4Icon className="text-gray-800 text-sm" />
             )}
           </div>
         </div>
