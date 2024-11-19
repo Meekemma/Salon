@@ -95,7 +95,7 @@ const CustomeAbout = () => {
           <p className="mt-4 text-lg text-gray-600">
             From precise barbering and luxurious spa treatments to flawless manicures and pedicures, we offer a range of premium grooming services tailored to your needs. 
           </p>
-          <a href="/services" className="mt-4 inline-block text-gold font-semibold carousel-button">
+          <a href="/services" className="mt-4 inline-block text-gold font-semibold carousel-button whitespace-nowrap">
             Explore all our services
           </a>
         </div>

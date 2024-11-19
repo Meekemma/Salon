@@ -7,6 +7,7 @@ import Service from './pages/Service';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import PageNotFound from './pages/PageNotFound';
+import BookingForm from './components/BookingForm';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Privacy />} />
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="/booking" element={<BookingForm />} />
+        <Route path="*" element={<PageNotFound />} /> 
       </Routes>
     </Router>
   );
