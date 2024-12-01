@@ -26,20 +26,21 @@ const Padicure = () => {
 
   return (
     <>
-      <div className="text-center py-6">
+      <div className="text-left lg:text-center py-6">
         <h3 className="text-4xl font-bold text-gray-800 text-wrap">
           Pedicure & Manicure Service
         </h3>
         <p className="text-lg text-gray-500 mt-2">
-          We offer modern styling to match your personality
+          Step into luxury with our Pedicure & Manicure services, designed to enhance your natural beauty. Whether you prefer a chic, classic look or something trendy, we’ll customize your experience to reflect your unique style. Treat yourself to the ultimate hand and foot care today!
         </p>
       </div>
+
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8'>
         {haircutImages.map((image, index) => (
           <div 
             key={index} 
-            className='w-full h-80 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
+            className='w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
             <LazyLoadImage 
               src={image.src}
               alt={image.alt}

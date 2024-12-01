@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBook, FaThumbsUp, FaHeart, FaCut } from 'react-icons/fa'; // Correct import for scissors-like icon
 import facebook from '../assets/images/facebook.svg'; 
 import whatsapp from '../assets/images/whatsapp.svg'; 
 import { Carousel } from 'react-responsive-carousel';
@@ -7,7 +8,7 @@ import '../styles/main.css';
 import ServicesOverview from './ServicesOverview';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import Spinner from "./Spinner"; 
 
 const CustomeAbout = () => {
   const images = [facebook, whatsapp]; 
@@ -26,16 +27,21 @@ const CustomeAbout = () => {
         <div className='flex flex-col justify-between md:flex-row items-start p-5'>
           {/* Text section */}
           <div className='md:w-1/2'>
-            <h1 className='text-2xl font-bold mb-4 underline'>Our Story</h1>
+            <h1 className='text-2xl font-bold mb-4 underline flex items-center'>
+              <FaBook className='mr-2' /> Our Story
+            </h1>
             <p className='text-base'>
-              Welcome to [Your Business Name], where grooming meets luxury and self-care becomes an art. 
+              Welcome to <span className="font-bold text-xl text-gray-600">Angel DE Whyte Unisex Salon</span>, where grooming meets luxury and self-care becomes an art. 
               With a passion for excellence, our skilled team of barbers, nail technicians, and spa specialists are committed to delivering an experience that leaves you feeling refreshed, confident, and looking your absolute best. 
               Whether you're here for a stylish haircut, a flawless manicure, or a rejuvenating spa treatment, 
               we pride ourselves on providing personalized services tailored to your unique needs.
             </p>
 
+
           <div className="mt-10">
-            <h2 className="text-2xl font-bold mb-4 underline">Why Choose Us</h2>
+            <h2 className="text-2xl font-bold mb-4 underline flex items-center">
+              <FaThumbsUp className='mr-2' /> Why Choose Us
+            </h2>
             <ul className="list-disc list-inside">
               {benefits.map((benefit, index) => (
                 <li key={index} className="text-lg">{benefit}</li>
@@ -44,7 +50,9 @@ const CustomeAbout = () => {
           </div>
 
           <div className="mt-8">
-            <h2 className="text-2xl font-bold underline">Our Values</h2>
+            <h2 className="text-2xl font-bold underline flex items-center">
+              <FaHeart className='mr-2' /> Our Values
+            </h2>
             <ul className="list-disc list-inside mt-4 space-y-2 text-lg text-gray-600">
               <li><strong>Quality First:</strong> We use only the best products in all our treatments.</li>
               <li><strong>Expert Professionals:</strong> Our team is highly trained in the latest techniques.</li>
@@ -52,10 +60,6 @@ const CustomeAbout = () => {
               <li><strong>Client-Centered:</strong> Your satisfaction is our top priority.</li>
             </ul>
           </div>
-
-
-
-
 
           </div>
 
@@ -91,7 +95,9 @@ const CustomeAbout = () => {
           </div>
         </div>
         <div className="mt-8 mx-auto px-8 py-4">
-          <h2 className="text-2xl font-semibold text-gray-800">Our Services</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 flex items-center">
+            <FaCut className="mr-2" /> Our Services
+          </h2>
           <p className="mt-4 text-lg text-gray-600">
             From precise barbering and luxurious spa treatments to flawless manicures and pedicures, we offer a range of premium grooming services tailored to your needs. 
           </p>
@@ -101,9 +107,6 @@ const CustomeAbout = () => {
         </div>
 
       </div>
-
-      
-
     </>
   );
 }

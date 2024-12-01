@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,16 +10,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '../styles/main.css';
-``
+import angel from '../assets/images/Angel.jpg';
+
 const pages = ['Home', 'About', 'Services', 'Contact'];
-const servicesList = ['Haircut', 'Nail Polishing', 'Styling', 'Shaving'];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElServices, setAnchorElServices] = React.useState(null);
-  const navigate = useNavigate();  // To navigate programmatically
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -29,18 +28,14 @@ const Navbar = () => {
     setAnchorElNav(null);
   };
 
-  const handleOpenServicesMenu = (event) => {
-    setAnchorElServices(event.currentTarget);
-  };
-
-  const handleCloseServicesMenu = () => {
-    setAnchorElServices(null);
-  };
-
   const handleNavigate = (page) => {
     handleCloseNavMenu();
     const route = page.toLowerCase() === 'home' ? '/' : `/${page.toLowerCase()}`;
-    navigate(route);  // Navigate to the appropriate route
+    navigate(route);
+  };
+
+  const handleOnClick = () => {
+    navigate('/booking');
   };
 
   return (
@@ -55,6 +50,8 @@ const Navbar = () => {
             sx={{
               mr: 2,
               flexGrow: 1,
+              display: 'flex',
+              alignItems: 'center',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -62,7 +59,17 @@ const Navbar = () => {
               textDecoration: 'none',
             }}
           >
-            Company Logo
+            <img
+              src={angel}
+              alt="Angel Logo"
+              loading="lazy"
+              style={{
+                height: '90px', // Default height for larger screens
+                width: 'auto',
+                borderRadius: '8px',
+              }}
+              className="responsive-logo" // Class for custom responsive behavior
+            />
           </Typography>
 
           {/* Responsive Menu for smaller screens */}
@@ -83,19 +90,34 @@ const Navbar = () => {
                 anchorEl={anchorElNav}
                 anchorOrigin={{
                   vertical: 'bottom',
-                  horizontal: 'right',
+                  horizontal: 'left',
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: 'top',
-                  horizontal: 'right',
+                  horizontal: 'left',
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
+                sx={{
+                  '& .MuiPaper-root': {
+                    width: '90vw', // Increase width for mobile
+                  },
+                }}
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={() => handleNavigate(page)}>
-                    <Typography sx={{ textAlign: 'center', color: '#333333' }}>{page}</Typography>
+                    <Typography
+                      sx={{
+                        textAlign: 'left',
+                        color:
+                          location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
+                            ? '#0D6E6E'
+                            : '#333333',
+                      }}
+                    >
+                      {page}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -108,46 +130,27 @@ const Navbar = () => {
               <Button
                 key={page}
                 onClick={() => handleNavigate(page)}
-                sx={{ my: 2, color: '#333333', display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
+                    ? '#0D6E6E'
+                    : '#333333',
+                  fontWeight: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
+                    ? 'bold'
+                    : 'normal',
+                  display: 'block',
+                }}
               >
-                {page === 'Services' ? (
-                  <>
-                    Services <ArrowDropDownIcon onClick={handleOpenServicesMenu} />
-                  </>
-                ) : (
-                  page
-                )}
+                {page}
               </Button>
             ))}
-
-            {/* Services dropdown menu */}
-            <Menu
-              id="services-menu"
-              anchorEl={anchorElServices}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElServices)}
-              onClose={handleCloseServicesMenu}
-            >
-              {servicesList.map((service) => (
-                <MenuItem key={service} onClick={handleCloseServicesMenu}>
-                  <Typography sx={{ textAlign: 'center', color: '#333333' }}>{service}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
 
           {/* Right side: Book Us button for larger screens */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             <Button
               variant="contained"
+              onClick={handleOnClick}
               sx={{
                 marginLeft: 'auto',
                 backgroundColor: '#C19A6B',
@@ -164,6 +167,15 @@ const Navbar = () => {
           </Box>
         </Toolbar>
       </Container>
+
+      {/* Responsive CSS for Logo */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .responsive-logo {
+            height: 60px; /* Reduce height for mobile */
+          }
+        }
+      `}</style>
     </AppBar>
   );
 };

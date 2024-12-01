@@ -5,9 +5,14 @@ import facebook from '../assets/images/facebook.svg'; // Example image
 import '../styles/main.css'; // Your custom CSS
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import { useNavigate } from 'react-router-dom';
 
 const MyCarousel = () => {
+  const navigate = useNavigate();
+
+  const handleOnClick = () =>{
+    navigate('/booking')
+  }
   return (
     <div className='carousel-image-wrapper'>
       <div className="carousel-container">
@@ -57,15 +62,16 @@ const MyCarousel = () => {
           </div>
 
           {/* Static Text Section */}
-          <div className="carousel-text-container">
-            <h1 className="carousel-title">Unleash Your Style, Elevate Your Glow</h1>
-            <p className="carousel-description">
-              Experience the art of personal care with professional haircuts, nail
-              treatments, and luxurious spa services tailored for both men and
-              women.
-            </p>
-            <button className="carousel-button">Book Your Appointment</button>
-          </div>
+          <div className="carousel-text-container text-left md:text-left">
+  <h1 className="carousel-title">Unleash Your Style, Elevate Your Glow</h1>
+  <p className="carousel-description">
+    Experience the art of personal care with professional haircuts, nail
+    treatments, and luxurious spa services tailored for both men and
+    women.
+  </p>
+  <button className="carousel-button" onClick={handleOnClick}>Book Your Appointment</button>
+</div>
+
         </div>
       </div>
     </div>

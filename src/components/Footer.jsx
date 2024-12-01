@@ -7,6 +7,7 @@ import whatsapp from '../assets/images/whatsapp.svg';
 import visa from '../assets/images/visa.svg';
 import mastercard from '../assets/images/Mastercard.svg';
 import '../styles/main.css';
+import angel from '../assets/images/Angel.jpg';
 
 const Footer = () => {
   const socialMediaLinks = {
@@ -18,12 +19,12 @@ const Footer = () => {
 
   const quickLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Contact', path: '/contact' },
   ];
   
   const legalLinks = [
-    { name: 'About', path: '/about' },
     { name: 'Terms & Conditions', path: '/terms-and-conditions' },
     { name: 'Privacy Policy', path: '/privacy-policy' },
   ];
@@ -47,8 +48,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center sm:text-left">
           {/* Company Info and Social Media */}
           <div>
-            <h1 className="text-xl font-bold mb-4">Company Logo</h1>
-            <p className="text-base mb-4">
+            <img 
+              src= {angel} 
+              alt="Angel Logo" 
+              loading='lazy'
+              style={{
+                borderRadius: '8px',
+              }}
+              
+              />
+            <p className="text-base mb-4 pt-3">
               Providing the best haircuts, manicures, pedicures, and nail polishing services in town.
             </p>
             <div className="flex justify-center sm:justify-start space-x-4">
@@ -130,7 +139,7 @@ const Footer = () => {
 
         {/* Copyright Section */}
         <div className="mt-4 text-center text-base text-gray-400">
-          &copy; {new Date().getFullYear()} Company Name. All rights reserved.
+          &copy; {new Date().getFullYear()} Angel De Whyte Unisex Salon. All rights reserved.
         </div>
 
       </div>

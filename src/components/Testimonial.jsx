@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; // Import the base Swiper styles
 import 'swiper/css/navigation'; // Import navigation styles
 import { Navigation } from 'swiper/modules'; // Adjusted import
+import { FaStar } from 'react-icons/fa'; // Import star icon from react-icons
 import facebook from '../assets/images/facebook.svg';
 import instagram from '../assets/images/instagram.svg';
 import tiktok from '../assets/images/tiktok.svg';
@@ -11,14 +12,14 @@ import '../styles/main.css';
 
 const Testimonial = () => {
   const testimonies = [
-    { text: 'The product is the best', name: 'Meekemma', avatar: facebook },
-    { text: 'The product is good', name: 'Meekemma', avatar: instagram },
-    { text: 'The product is great', name: 'Meekemma', avatar: tiktok },
-    { text: 'The product is awesome', name: 'Meekemma', avatar: whatsapp },
-    { text: 'The product is phenomenal', name: 'John Doe', avatar: facebook },
-    { text: 'I love it!', name: 'Jane Doe', avatar: instagram },
-    { text: 'Highly recommended!', name: 'Chris P.', avatar: tiktok },
-    { text: 'Worth every penny', name: 'Sara L.', avatar: whatsapp },
+    { text: 'The service is amazing, I always leave feeling refreshed!', name: 'Mary A.', avatar: facebook, stars: 5 },
+    { text: 'A truly fantastic experience, will definitely be back.', name: 'James B.', avatar: instagram, stars: 5 },
+    { text: 'The staff is friendly and professional, highly recommend.', name: 'Linda C.', avatar: tiktok, stars: 4 },
+    { text: 'I loved the manicure, the attention to detail was incredible.', name: 'John D.', avatar: whatsapp, stars: 5 },
+    { text: 'Very relaxing spa treatment, worth every minute.', name: 'Emily F.', avatar: facebook, stars: 4 },
+    { text: 'Excellent haircut, I’m so happy with the results.', name: 'Chris P.', avatar: instagram, stars: 5 },
+    { text: 'Great service, I will definitely return for another session.', name: 'Sara L.', avatar: tiktok, stars: 5 },
+    { text: 'The best nail polish service I’ve had, thank you!', name: 'Jake T.', avatar: whatsapp, stars: 5 },
   ];
 
   const swiperRef = useRef(null);
@@ -32,7 +33,7 @@ const Testimonial = () => {
   return (
     <div className='container test mx-auto px-4 py-8 mt-16 bg-[#FFF5EE]'>
       <div className='flex justify-center'>
-        <div className='text-center'>
+        <div className='text-left lg:text-center'>
           <h1 className='text-5xl font-bold mb-4'>What Our Clients Say</h1>
           <p className='text-base md:px-16 break-words'>
             Our clients' satisfaction is our top priority. Here’s what some of them have to say about their experiences with our services. 
@@ -57,7 +58,17 @@ const Testimonial = () => {
           {testimonies.map((testimony, index) => (
             <SwiperSlide key={index}>
               <div className='testimonial-card'>
-                <img src={testimony.avatar} alt={`${testimony.name}'s avatar`} className='w-16 h-16 mb-4' />
+                <div className='flex items-center'>
+                  <img src={testimony.avatar} alt={`${testimony.name}'s avatar`} className='w-16 h-16 mb-4' loading='lazy'/>
+                  <div className='ml-4 flex'>
+                    {[...Array(testimony.stars)].map((_, i) => (
+                      <FaStar key={i} className='text-yellow-500' />
+                    ))}
+                    {[...Array(5 - testimony.stars)].map((_, i) => (
+                      <FaStar key={i + testimony.stars} className='text-gray-300' />
+                    ))}
+                  </div>
+                </div>
                 <p className='mb-2 text-lg italic'>“{testimony.text}”</p>
                 <p className='font-bold'>{testimony.name}</p>
               </div>
@@ -74,9 +85,6 @@ const Testimonial = () => {
           &#9654; {/* Right arrow icon */}
         </button>
       </div>
-
-      
-      
     </div>
   );
 };

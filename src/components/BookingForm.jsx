@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import salon from '../assets/images/man.jpg'; // Importing the salon image
+import Spinner from './Spinner'; // Make sure Spinner component is imported
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -8,7 +10,8 @@ const BookingForm = () => {
     date: "",
     time: "",
   });
-  const[error, setError] = useState("")
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // State to track loading status
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,99 +21,143 @@ const BookingForm = () => {
   const handleSubmit = () => {
     const { name, phone, service, date, time } = formData;
 
-    //Clear Previous error
-    setError("")
+    // Clear previous error
+    setError("");
+    setIsLoading(true); // Start loading when the form is submitted
 
-    //curent date and time
+    // Current date and time
     const now = new Date();
     const selectedDateTime = new Date(`${date}T${time}`);
+    
     // Validation checks
-    if(!name || !phone || !service || !date || !time){
-        setError("All fields are required");
-        setTimeout(() => {
-            setError(""); // Clear the error after 3 seconds
-            window.location.reload();
-          }, 3000);
-        return;
-    }
-
-    if (selectedDateTime < now ){
-        setError("You cannot pick a past date or time!");
-        setTimeout(() => {
-            setError(""); // Clear the error after 3 seconds
-            window.location.reload();
-          }, 3000);
+    if (!name || !phone || !service || !date || !time) {
+      setError("All fields are required");
+      setTimeout(() => {
+        setError("");
+        setIsLoading(false); // Stop loading if there's an error
+      }, 3000);
       return;
     }
 
+    if (selectedDateTime < now) {
+      setError("You cannot pick a past date or time!");
+      setTimeout(() => {
+        setError("");
+        setIsLoading(false); // Stop loading if there's an error
+      }, 3000);
+      return;
+    }
 
     // Create WhatsApp URL
-    const message = `*Hello! I'd like to book an appointment*.
-    Name: ${formData.name}
-    Phone: ${formData.phone}
-    Service: ${formData.service}
-    Date: ${formData.date}
-    Time: ${formData.time}`;
+    const message = `*Hello! I'd like to book an appointment*.\nName: ${formData.name}\nPhone: ${formData.phone}\nService: ${formData.service}\nDate: ${formData.date}\nTime: ${formData.time}`;
     const whatsappUrl = `https://wa.me/2349076309004?text=${encodeURIComponent(message)}`;
-
 
     // Open WhatsApp link
     window.open(whatsappUrl, "_blank");
 
-    //Reset the form after submission
+    // Reset the form after submission
     setFormData({
-        name: "",
-        phone: "",
-        service: "",
-        date: "",
-        time: "",
-    })
+      name: "",
+      phone: "",
+      service: "",
+      date: "",
+      time: "",
+    });
+
+    // Stop loading after the process
+    setIsLoading(false);
   };
 
   return (
-    <div>
-      <h2>Book an Appointment</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Your Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
-        <select name="service" value={formData.service} onChange={handleChange}>
-          <option value="">Select Service</option>
-          <option value="Haircut">Haircut</option>
-          <option value="Manicure">Manicure</option>
-        </select>
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-          required
-        />
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+    <div className="flex flex-col md:flex-row items-start container px-4 py-8 gap-10">
+      {/* Salon image section */}
+      <div className="flex justify-center w-full md:w-1/2 mt-0 md:mt-0">
+        <img src={salon} alt="Salon" className="w-full max-w-md h-auto rounded-lg shadow-md"  loading="lazy"/>
+      </div>
+
+      {/* Booking form section */}
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/2">
+        {/* Guide Text */}
+        <div className="mb-6">
+          <h3 className="text-xl font-semibold text-teal-600 mb-4">How to Book Your Appointment</h3>
+          <p className="text-lg text-gray-600">
+            Follow the steps below to easily book an appointment with us:
+          </p>
+          <ol className="list-decimal list-inside text-gray-600 mt-4">
+            <li className="mb-2">Fill in your name and phone number for us to contact you.</li>
+            <li className="mb-2">Choose the service you'd like to book (e.g., Haircut or Manicure).</li>
+            <li className="mb-2">Pick your preferred date and time for the appointment.</li>
+            <li className="mb-2">Click "Submit" to send your details directly to us via WhatsApp.</li>
+            <li className="mb-2">We will confirm your appointment as soon as possible.</li>
+          </ol>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-center text-teal-600 mb-6">Book an Appointment</h2>
+
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
+        <form className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Your Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+          >
+            <option value="">Select Service</option>
+            <option value="Haircut">Haircut</option>
+            <option value="Manicure">Manicure</option>
+          </select>
+          
+          <input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          
+          <input
+            type="time"
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            required
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+          />
+          
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="w-full py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+          >
+            {isLoading ? (
+              <Spinner size={20} color="#ffffff" />
+            ) : ("Submit")}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

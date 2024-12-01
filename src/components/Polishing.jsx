@@ -32,18 +32,19 @@ const Polishing = () => {
 
   return (
     <>
-      <div className="text-center py-6">
+      <div className="text-left lg:text-center py-6">
         <h3 className="text-4xl font-bold text-gray-800">Nail Polishing Service</h3>
         <p className="text-lg text-gray-500 mt-2">
-          Our nail polishing services give your nails a new glow.
+          Transform your nails into a masterpiece with our professional nail polishing services. From classic elegance to bold statement colors, we offer a variety of options that will leave your nails shining and flawless. Pamper yourself today for the perfect touch of glamour!
         </p>
       </div>
+
 
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8'>
         {haircutImages.map((image, index) => (
           <div 
             key={index} 
-            className='w-full h-80 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
+            className='w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
             <LazyLoadImage 
               src={image.src}
               alt={image.alt} 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css'; // Optional effect
+
 import js from '../assets/images/js.svg';
 import linkedin from '../assets/images/linkedin.svg';
 import redis from '../assets/images/redis.svg';
@@ -9,7 +11,6 @@ import twitter from '../assets/images/twitter.svg';
 import instagram from '../assets/images/instagram.svg';
 import tailwindcss from '../assets/images/tailwindcss.svg';
 import html from '../assets/images/html.svg';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Spa = () => {
   const haircutImages = [
@@ -26,34 +27,30 @@ const Spa = () => {
 
   return (
     <>
-      <div className="text-center py-6">
-        <h3 className="text-4xl font-bold text-gray-800 whitespace-nowrap">
-          Spa Service
-        </h3>
+      <div className="text-left lg:text-center py-6">
+        <h3 className="text-4xl font-bold text-gray-800">Spa Service</h3>
         <p className="text-lg text-gray-500 mt-2">
-          Enjoy a clean and professional shaving experience.
+          Indulge in a luxurious spa experience designed to refresh, rejuvenate, and relax. Whether you're looking for a soothing facial, a calming massage, or a revitalizing body treatment, our professional spa services will leave you feeling renewed and glowing. Treat yourself today to the ultimate pampering session!
         </p>
       </div>
 
-      {/* Spa Images */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 py-8'>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4">
         {haircutImages.map((image, index) => (
-          <div 
-            key={index} 
-            className='w-full h-80 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
-            <LazyLoadImage 
+          <div key={index} className="w-full md:w-96 lg:w-80 h-80 rounded-lg overflow-hidden shadow-md"> {/* Increased width and height */}
+            <LazyLoadImage
               src={image.src}
               alt={image.alt}
-              effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
-              height="100%" 
-              width="100%" 
+              effect="blur"
+              height="100%"
+              width="100%"
               wrapperProps={{
                 style: { 
                   transitionDelay: "1s", // Wait 1 second before starting the transition effect
                   backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
                 },
               }}
-              className="w-full h-full object-contain" 
+              className="w-full h-full object-contain" // Maintain aspect ratio
             />
           </div>
         ))}

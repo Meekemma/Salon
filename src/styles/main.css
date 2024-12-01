@@ -66,7 +66,6 @@ a:hover {
     width: 100%; /* Cover the entire image */
     height: 100%;
     background: rgba(0, 0, 0, 0.3); /* Dark overlay */
-    box-shadow: inset 10px 20px 50px #000000, inset -10px -20px 50px #000000; /* Inner shadow for depth */
     z-index: 1; /* Overlay above the image */
     pointer-events: none; /* Allow interaction with underlying content */
   }

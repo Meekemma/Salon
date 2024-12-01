@@ -7,7 +7,7 @@ import Service from './pages/Service';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import PageNotFound from './pages/PageNotFound';
-import BookingForm from './components/BookingForm';
+import Booking from './pages/Booking';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/services" element={<Service />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Privacy />} />
-        <Route path="/booking" element={<BookingForm />} />
+        <Route path="/booking" element={<Booking />} />
         <Route path="*" element={<PageNotFound />} /> 
       </Routes>
     </Router>
