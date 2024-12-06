@@ -1,27 +1,34 @@
 import React from 'react';
-import js from '../assets/images/js.svg';
-import linkedin from '../assets/images/linkedin.svg';
-import redis from '../assets/images/redis.svg';
-import python from '../assets/images/python.svg';
-import reactjs from '../assets/images/reactjs.svg';
-import twitter from '../assets/images/twitter.svg';
-import instagram from '../assets/images/instagram.svg';
-import tailwindcss from '../assets/images/tailwindcss.svg';
-import html from '../assets/images/html.svg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
+import Nailart from '../assets/images/Nailart.jpeg';
+import pedicure from '../assets/images/pedicure.jpeg';
+import colorNails from '../assets/images/colorNails.jpeg';
+import pedi from '../assets/images/pedi.jpeg';
+import Nicemani from '../assets/images/Nicemani.jpeg';
+import ladymani from '../assets/images/ladymani.jpeg';
+import shortpadi from '../assets/images/shortpadi.jpeg';
+import nailmani from '../assets/images/nailmani.jpeg';
+import manicure from '../assets/images/manicure.jpeg';
+import coolmani from '../assets/images/coolmani.jpeg';
+import manpedi from '../assets/images/manpedi.jpeg';
+import mani from '../assets/images/mani.jpeg';
+
 const Padicure = () => {
-  const haircutImages = [
-    { src: js, alt: 'JavaScript' },
-    { src: linkedin, alt: 'LinkedIn' },
-    { src: redis, alt: 'Redis' },
-    { src: python, alt: 'Python' },
-    { src: reactjs, alt: 'ReactJS' },
-    { src: twitter, alt: 'Twitter' },
-    { src: instagram, alt: 'Instagram' },
-    { src: tailwindcss, alt: 'Tailwind CSS' },
-    { src: html, alt: 'HTML' }
+  const manicurePedicureImages = [
+    { src: Nailart, alt: 'Elegant nail art with intricate designs' },
+    { src: pedicure, alt: 'Refreshing pedicure session with vibrant colors' },
+    { src: colorNails, alt: 'Colorful nails with a glossy finish' },
+    { src: pedi, alt: 'Luxurious foot spa during a pedicure' },
+    { src: Nicemani, alt: 'A neat and classy manicure' },
+    { src: ladymani, alt: 'Stylish manicure for the modern woman' },
+    { src: shortpadi, alt: 'Short and clean nails with a pop of color' },
+    { src: nailmani, alt: 'Nail care perfection with a natural finish' },
+    { src: manicure, alt: 'Classic manicure with a touch of elegance' },
+    { src: coolmani, alt: 'Trendy nails with a cool and modern vibe' },
+    { src: manpedi, alt: 'Matching manicure and pedicure with style' },
+    { src: mani, alt: 'Simple and elegant manicure for any occasion' },
   ];
 
   return (
@@ -35,25 +42,24 @@ const Padicure = () => {
         </p>
       </div>
 
-
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8'>
-        {haircutImages.map((image, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8">
+        {manicurePedicureImages.map((image, index) => (
           <div 
             key={index} 
-            className='w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
+            className="w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
             <LazyLoadImage 
               src={image.src}
               alt={image.alt}
-              effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
-              height="100%" 
-              width="100%" 
+              effect="blur"
+              height="100%"
+              width="100%"
               wrapperProps={{
                 style: { 
-                  transitionDelay: "1s", // Wait 1 second before starting the transition effect
-                  backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
+                  transitionDelay: "1s",
+                  backgroundColor: "rgba(0,0,0,0.1)"
                 },
               }}
-              className="w-full h-full object-contain" 
+              className="w-full h-full object-contain"
             />
           </div>
         ))}

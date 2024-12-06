@@ -1,27 +1,33 @@
 import React from 'react';
-import js from '../assets/images/js.svg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import linkedin from '../assets/images/linkedin.svg';
-import redis from '../assets/images/redis.svg';
-import python from '../assets/images/python.svg';
-import reactjs from '../assets/images/reactjs.svg';
-import twitter from '../assets/images/twitter.svg';
-import instagram from '../assets/images/instagram.svg';
-import tailwindcss from '../assets/images/tailwindcss.svg';
-import html from '../assets/images/html.svg';
+import beautiful from '../assets/images/beautiful.jpeg';
+import blue from '../assets/images/blue.jpeg';
+import body from '../assets/images/body.jpeg';
+import cutie from '../assets/images/cutie.jpeg';
+import french from '../assets/images/french.jpeg';
+import hand from '../assets/images/hand.jpeg';
+import legs from '../assets/images/legs.jpeg';
+import trend from '../assets/images/trends.jpeg';
+import pick from '../assets/images/pick.jpeg';
+import nailtech from '../assets/images/nailtech.jpeg';
+import tropez from '../assets/images/tropez.jpeg';
+import nail from '../assets/images/nail.jpeg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Polishing = () => {
   const haircutImages = [
-    { src: js, alt: 'JavaScript' },
-    { src: linkedin, alt: 'LinkedIn' },
-    { src: redis, alt: 'Redis' },
-    { src: python, alt: 'Python' },
-    { src: reactjs, alt: 'ReactJS' },
-    { src: twitter, alt: 'Twitter' },
-    { src: instagram, alt: 'Instagram' },
-    { src: tailwindcss, alt: 'Tailwind CSS' },
-    { src: html, alt: 'HTML' }
+    { src: beautiful, alt: 'beautiful' },
+    { src: blue, alt: 'blue' },
+    { src: body, alt: 'body' },
+    { src: cutie, alt: 'cutie' },
+    { src: french, alt: 'french' },
+    { src: hand, alt: 'hand' },
+    { src: legs, alt: 'legs' },
+    { src: trend, alt: 'trend' },
+    { src: pick, alt: 'pick' },
+    { src: nailtech, alt: 'nailtech' },
+    { src: tropez, alt: 'tropez' },
+    { src: nail, alt: 'nail' },
   ];
 
   const stylist = [

@@ -65,7 +65,7 @@ a:hover {
     left: 0;
     width: 100%; /* Cover the entire image */
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.1); /* Dark overlay */
     z-index: 1; /* Overlay above the image */
     pointer-events: none; /* Allow interaction with underlying content */
   }

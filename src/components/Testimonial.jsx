@@ -12,14 +12,14 @@ import '../styles/main.css';
 
 const Testimonial = () => {
   const testimonies = [
-    { text: 'The service is amazing, I always leave feeling refreshed!', name: 'Mary A.', avatar: facebook, stars: 5 },
-    { text: 'A truly fantastic experience, will definitely be back.', name: 'James B.', avatar: instagram, stars: 5 },
+    { text: 'The service is amazing, I always leave feeling refreshed!', name: 'Bukki.', avatar: facebook, stars: 5 },
+    { text: 'A truly fantastic experience, will definitely be back.', name: 'Meekemma.', avatar: whatsapp, stars: 5 },
     { text: 'The staff is friendly and professional, highly recommend.', name: 'Linda C.', avatar: tiktok, stars: 4 },
-    { text: 'I loved the manicure, the attention to detail was incredible.', name: 'John D.', avatar: whatsapp, stars: 5 },
-    { text: 'Very relaxing spa treatment, worth every minute.', name: 'Emily F.', avatar: facebook, stars: 4 },
-    { text: 'Excellent haircut, I’m so happy with the results.', name: 'Chris P.', avatar: instagram, stars: 5 },
-    { text: 'Great service, I will definitely return for another session.', name: 'Sara L.', avatar: tiktok, stars: 5 },
-    { text: 'The best nail polish service I’ve had, thank you!', name: 'Jake T.', avatar: whatsapp, stars: 5 },
+    { text: 'I loved the manicure, the attention to detail was incredible.', name: 'John Uche.', avatar: whatsapp, stars: 5 },
+    { text: 'Very relaxing spa treatment, worth every minute.', name: 'Emily Faith.', avatar: facebook, stars: 4 },
+    { text: 'Excellent haircut, I’m so happy with the results.', name: 'Chris.', avatar: instagram, stars: 5 },
+    { text: 'Great service, I will definitely return for another session.', name: 'Sara.', avatar: tiktok, stars: 5 },
+    { text: 'The best nail polish service I’ve had, thank you!', name: 'Daniel Danny.', avatar: whatsapp, stars: 5 },
   ];
 
   const swiperRef = useRef(null);

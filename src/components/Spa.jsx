@@ -2,27 +2,33 @@ import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css'; // Optional effect
 
-import js from '../assets/images/js.svg';
-import linkedin from '../assets/images/linkedin.svg';
-import redis from '../assets/images/redis.svg';
-import python from '../assets/images/python.svg';
-import reactjs from '../assets/images/reactjs.svg';
-import twitter from '../assets/images/twitter.svg';
-import instagram from '../assets/images/instagram.svg';
-import tailwindcss from '../assets/images/tailwindcss.svg';
-import html from '../assets/images/html.svg';
+import spa from '../assets/images/spa.jpeg';
+import spablack from '../assets/images/spablack.jpeg';
+import spagiffy from '../assets/images/spagiffy.jpeg';
+import spafyp from '../assets/images/spafyp.jpeg';
+import spagirls from '../assets/images/spagirls.jpeg';
+import spahot from '../assets/images/spahot.jpg';
+import spalady from '../assets/images/spalady.jpg';
+import spalit from '../assets/images/spalit.jpeg';
+import spatrend from '../assets/images/spatrend.jpeg';
+import spacheck from '../assets/images/spacheck.jpeg';
+import spalas from '../assets/images/spalas.jpeg';
+import spaim from '../assets/images/spaim.jpeg';
 
 const Spa = () => {
-  const haircutImages = [
-    { src: js, alt: 'JavaScript' },
-    { src: linkedin, alt: 'LinkedIn' },
-    { src: redis, alt: 'Redis' },
-    { src: python, alt: 'Python' },
-    { src: reactjs, alt: 'ReactJS' },
-    { src: twitter, alt: 'Twitter' },
-    { src: instagram, alt: 'Instagram' },
-    { src: tailwindcss, alt: 'Tailwind CSS' },
-    { src: html, alt: 'HTML' }
+  const spaImages = [
+    { src: spa, alt: 'Tranquil spa setting with soothing lighting' },
+    { src: spablack, alt: 'Luxurious spa ambience for ultimate relaxation' },
+    { src: spagiffy, alt: 'Rediscover serenity with our calming spa treatments' },
+    { src: spafyp, alt: 'Revitalizing spa experience featuring premium products' },
+    { src: spagirls, alt: 'Relaxing group spa session with friends' },
+    { src: spahot, alt: 'Hot stone therapy for muscle relaxation and stress relief' },
+    { src: spalady, alt: 'Lady enjoying a rejuvenating facial at the spa' },
+    { src: spalit, alt: 'Lit candles and aroma oils creating a serene spa atmosphere' },
+    { src: spatrend, alt: 'Trendy spa interiors blending elegance and comfort' },
+    { src: spacheck, alt: 'Spa checklist for a customized wellness experience' },
+    { src: spalas, alt: 'Lasting rejuvenation from expert spa therapies' },
+    { src: spaim, alt: 'Lasting rejuvenation spa therapies' },
   ];
 
   return (
@@ -34,10 +40,9 @@ const Spa = () => {
         </p>
       </div>
 
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4">
-        {haircutImages.map((image, index) => (
-          <div key={index} className="w-full md:w-96 lg:w-80 h-80 rounded-lg overflow-hidden shadow-md"> {/* Increased width and height */}
+        {spaImages.map((image, index) => (
+          <div key={index} className="w-full md:w-96 lg:w-80 h-80 rounded-lg overflow-hidden shadow-md">
             <LazyLoadImage
               src={image.src}
               alt={image.alt}
@@ -45,12 +50,12 @@ const Spa = () => {
               height="100%"
               width="100%"
               wrapperProps={{
-                style: { 
-                  transitionDelay: "1s", // Wait 1 second before starting the transition effect
-                  backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
+                style: {
+                  transitionDelay: '1s',
+                  backgroundColor: 'rgba(0,0,0,0.1)',
                 },
               }}
-              className="w-full h-full object-contain" // Maintain aspect ratio
+              className="w-full h-full object-contain"
             />
           </div>
         ))}

@@ -1,33 +1,40 @@
 import React from 'react';
-import js from '../assets/images/js.svg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import linkedin from '../assets/images/linkedin.svg';
-import redis from '../assets/images/redis.svg';
-import python from '../assets/images/python.svg';
-import reactjs from '../assets/images/reactjs.svg';
-import twitter from '../assets/images/twitter.svg';
-import instagram from '../assets/images/instagram.svg';
-import tailwindcss from '../assets/images/tailwindcss.svg';
-import html from '../assets/images/html.svg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
+import fadecute from '../assets/images/fadecute.jpeg';
+import black from '../assets/images/black.jpeg';
+import afro from '../assets/images/afro.jpeg';
+import blackbest from '../assets/images/black_best.jpeg';
+import blackmen from '../assets/images/blackmen.jpeg';
+import Dreadlock from '../assets/images/Dreadlock.jpeg';
+import dreadlockmen from '../assets/images/dreadlockmen.jpeg';
+import male from '../assets/images/male.jpeg';
+import fade from '../assets/images/fade.jpeg';
+import mohawk from '../assets/images/mohawk.jpeg';
+import lowfade from '../assets/images/lowfade.jpeg';
+import skincut from '../assets/images/skincut.jpeg';
 
 const Haircut = () => {
   const haircutImages = [
-    { src: js, alt: 'JavaScript' },
-    { src: linkedin, alt: 'LinkedIn' },
-    { src: redis, alt: 'Redis' },
-    { src: python, alt: 'Python' },
-    { src: reactjs, alt: 'ReactJS' },
-    { src: twitter, alt: 'Twitter' },
-    { src: instagram, alt: 'Instagram' },
-    { src: tailwindcss, alt: 'Tailwind CSS' },
-    { src: html, alt: 'HTML' }
+    { src: mohawk, alt: 'Bold mohawk with sharp, edgy lines' },
+    { src: fadecute, alt: 'Stylish fade cut with a smooth finish' },
+    { src: fade, alt: 'Classic fade haircut for a clean and polished look' },
+    { src: blackbest, alt: 'Trendsetting black hairstyle with a sleek design' },
+    { src: dreadlockmen, alt: 'Defined dreadlocks styled for a modern vibe' },
+    { src: Dreadlock, alt: 'Long and well-maintained dreadlocks' },
+    { src: afro, alt: 'Natural afro with a voluminous shape' },
+    { src: male, alt: 'Neat and versatile haircut for men' },
+    { src: lowfade, alt: 'Low fade cut for a subtle yet sophisticated style' },
+    { src: blackmen, alt: 'Sharp haircut for black men with attention to detail' },
+    { src: black, alt: 'Classic black hairstyle with a timeless appeal' },
+    { src: skincut, alt: 'Skin cut for a bold and minimalist look' },
   ];
 
   const stylist = [
-    'Dreadlocks', 'Twist-Out', 'Buzz Cut', 'Curly Top', 'Caesar Fade', 
-    'Temple Fade', '360 Waves', 'Frohawk', 'Fade with Part', 'Short Afro', 
-    'Taper Fade', 'Flat Top'
+    'Dreadlocks', 'Twist-Out', 'Buzz Cut', 'Curly Top', 'Caesar Fade',
+    'Temple Fade', '360 Waves', 'Frohawk', 'Fade with Part', 'Short Afro',
+    'Taper Fade', 'Flat Top',
   ];
 
   return (
@@ -39,25 +46,25 @@ const Haircut = () => {
         </p>
       </div>
 
-
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8'>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-8 py-8">
         {haircutImages.map((image, index) => (
-          <div 
-            key={index} 
-            className='w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105'>
-            <LazyLoadImage 
+          <div
+            key={index}
+            className="w-full md:w-96 lg:w-80 h-96 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
+          >
+            <LazyLoadImage
               src={image.src}
-              alt={image.alt} 
-              effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
-              height="100%" 
-              width="100%" 
+              alt={image.alt}
+              effect="blur"
+              height="100%"
+              width="100%"
               wrapperProps={{
-                style: { 
-                  transitionDelay: "1s", // Wait 1 second before starting the transition effect
-                  backgroundColor: "rgba(0,0,0,0.1)" // Optional: add styling to the wrapper itself
+                style: {
+                  transitionDelay: '1s',
+                  backgroundColor: 'rgba(0,0,0,0.1)',
                 },
               }}
-              className="w-full h-full object-contain" 
+              className="w-full h-full object-contain"
             />
           </div>
         ))}

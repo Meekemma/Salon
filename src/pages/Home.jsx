@@ -6,6 +6,7 @@ import CustomeGallery from '../components/CustomeGallery'
 import Performance from '../components/Performance'
 import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
+import TeamGallary from '../components/TeamGallary'
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
         <MyCarousel  />
         <CustomeGallery />
         <Performance />
+        <TeamGallary/>
         <Testimonial />
         <Footer />
     
