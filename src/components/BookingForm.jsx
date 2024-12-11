@@ -125,9 +125,22 @@ const BookingForm = () => {
             className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
           >
             <option value="">Select Service</option>
-            <option value="Haircut">Haircut</option>
-            <option value="Manicure">Manicure</option>
+            <optgroup label="In-Salon Services">
+              <option value="haircut">Haircut</option>
+              <option value="nail-polish">Nail Polish</option>
+              <option value="manicure">Manicure</option>
+              <option value="pedicure">Pedicure</option>
+              <option value="spa">Spa</option>
+            </optgroup>
+            <optgroup label="Home Services">
+              <option value="home-haircut">Home Service Haircut</option>
+              <option value="home-polish">Home Service Polish</option>
+              <option value="home-manicure">Home Service Manicure</option>
+              <option value="home-pedicure">Home Service Pedicure</option>
+              <option value="home-spa">Home Service Spa</option>
+            </optgroup>
           </select>
+
           
           <input
             type="date"
