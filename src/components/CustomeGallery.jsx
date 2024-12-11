@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules'; // Import Autoplay module
 import 'swiper/swiper-bundle.css';
-import handsome from '../assets/images/handsome.jpeg';
-import nudenails from '../assets/images/nudenails.jpeg';
+import Handsome from '../assets/images/Handsome.jpeg';
+import Nudenails from '../assets/images/Nudenails.jpeg';
 import spaim from '../assets/images/spaim.jpeg';
 import nailtech from '../assets/images/nailtech.jpeg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -11,7 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import '../styles/main.css';
 
 const CustomeGallery = () => {
-  const images = [handsome, nudenails, spaim, nailtech];
+  const images = [Handsome, Nudenails, spaim, nailtech];
 
   const swiperRef = useRef(null);
 
