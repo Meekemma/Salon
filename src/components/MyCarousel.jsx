@@ -20,7 +20,7 @@ const MyCarousel = () => {
       <div className="carousel-container">
         <div className="flex flex-col md:flex-row items-center h-screen w-full">
           {/* Image Carousel */}
-          <div className="carousel-image-container w-full h-[60vh] sm:h-[80vh] md:h-screen">
+          <div className="carousel-image-container w-full h-[80vh] sm:h-[80vh] md:h-screen">
             <Carousel
               showArrows={false} // Disable arrows for a cleaner look
               autoPlay={true} // Autoplay
