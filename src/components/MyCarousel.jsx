@@ -52,6 +52,10 @@ const MyCarousel = () => {
                   effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
                   height="100%" 
                   width="100%" 
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                  }}
                   wrapperProps={{
                     style: { 
                       transitionDelay: "1s", // Wait 1 second before starting the transition effect
