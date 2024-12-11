@@ -1,16 +1,16 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import beautiful from '../assets/images/beautiful.jpeg';
+import beautiful from '../assets/images/Beautiful.jpeg';
 import blue from '../assets/images/blue.jpeg';
 import body from '../assets/images/body.jpeg';
 import cutie from '../assets/images/cutie.jpeg';
 import french from '../assets/images/french.jpeg';
 import hand from '../assets/images/hand.jpeg';
 import legs from '../assets/images/legs.jpeg';
-import trend from '../assets/images/trends.jpeg';
-import pick from '../assets/images/pick.jpeg';
+import trend from '../assets/images/Trends.jpeg';
+import pick from '../assets/images/Pick.jpeg';
 import nailtech from '../assets/images/nailtech.jpeg';
-import tropez from '../assets/images/tropez.jpeg';
+import tropez from '../assets/images/Tropez.jpeg';
 import nail from '../assets/images/nail.jpeg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
