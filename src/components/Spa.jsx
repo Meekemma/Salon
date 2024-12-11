@@ -12,7 +12,7 @@ import spalady from '../assets/images/spalady.jpg';
 import spalit from '../assets/images/spalit.jpeg';
 import spatrend from '../assets/images/spatrend.jpeg';
 import spacheck from '../assets/images/spacheck.jpeg';
-import spalas from '../assets/images/spalas.jpeg';
+import spalas from '../assets/images/Spalas.jpeg';
 import spaim from '../assets/images/spaim.jpeg';
 
 const Spa = () => {
