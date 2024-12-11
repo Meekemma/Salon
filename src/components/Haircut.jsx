@@ -8,7 +8,7 @@ import afro from '../assets/images/Afro.jpeg';
 import blackbest from '../assets/images/black_best.jpeg';
 import blackmen from '../assets/images/Blackmen.jpeg';
 import Dreadlock from '../assets/images/Dreadlock.jpeg';
-import dreadlockmen from '../assets/images/dreadlockmen.jpeg';
+import dreadlockmen from '../assets/images/Dreadlockmen.jpeg';
 import male from '../assets/images/male.jpeg';
 import fade from '../assets/images/fade.jpeg';
 import mohawk from '../assets/images/Mohawk.jpeg';
