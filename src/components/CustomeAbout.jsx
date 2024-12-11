@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBook, FaThumbsUp, FaHeart, FaCut } from 'react-icons/fa'; // Correct import for scissors-like icon
-import angel from '../assets/images/Angel.jpg';
-import angelwhite from '../assets/images/angelwhite.jpg'; 
+import Angel from '../assets/images/Angel.jpg';
+import Angelwhite from '../assets/images/Angelwhite.jpg'; 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import '../styles/main.css';
@@ -11,7 +11,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Spinner from "./Spinner"; 
 
 const CustomeAbout = () => {
-  const images = [angel, angelwhite]; 
+  const images = [Angel, Angelwhite]; 
 
   const benefits = [
     'Expert professionals with years of experience.',
