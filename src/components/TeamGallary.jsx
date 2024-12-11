@@ -6,7 +6,7 @@ import team from '../assets/images/team.jpeg';
 import Angel from '../assets/images/Angel.jpg';
 import Jumbo from '../assets/images/Jumbo.jpeg';
 import client from '../assets/images/client.jpeg';
-import frenchteam from '../assets/images/frenchteam.jpeg';
+import frenchteam from '../assets/images/Frenchteam.jpeg';
 import spalit from '../assets/images/spalit.jpeg';
 import AngelWhite from '../assets/images/AngelWhite.jpg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
