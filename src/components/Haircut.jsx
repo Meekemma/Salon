@@ -4,14 +4,14 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import fadecute from '../assets/images/fadecute.jpeg';
 import black from '../assets/images/black.jpeg';
-import afro from '../assets/images/afro.jpeg';
+import afro from '../assets/images/Afro.jpeg';
 import blackbest from '../assets/images/black_best.jpeg';
 import blackmen from '../assets/images/blackmen.jpeg';
 import Dreadlock from '../assets/images/Dreadlock.jpeg';
 import dreadlockmen from '../assets/images/dreadlockmen.jpeg';
 import male from '../assets/images/male.jpeg';
 import fade from '../assets/images/fade.jpeg';
-import mohawk from '../assets/images/mohawk.jpeg';
+import mohawk from '../assets/images/Mohawk.jpeg';
 import lowfade from '../assets/images/lowfade.jpeg';
 import skincut from '../assets/images/skincut.jpeg';
 

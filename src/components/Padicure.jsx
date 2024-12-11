@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Nailart from '../assets/images/Nailart.jpeg';
 import pedicure from '../assets/images/pedicure.jpeg';
-import colorNails from '../assets/images/colorNails.jpeg';
+import colorNails from '../assets/images/ColorNails.jpeg';
 import pedi from '../assets/images/pedi.jpeg';
 import Nicemani from '../assets/images/Nicemani.jpeg';
 import ladymani from '../assets/images/ladymani.jpeg';
