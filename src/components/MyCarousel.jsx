@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import carousel styles
-import JuiceH from '../assets/images/JuiceH.jpeg'; // Example image
-import press from '../assets/images/press.jpeg'; 
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; 
+import JuiceH from '../assets/images/JuiceH.jpeg'; 
+import Press from '../assets/images/Press.jpeg'; 
 import '../styles/main.css'; // Your custom CSS
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -47,7 +47,7 @@ const MyCarousel = () => {
               </div>
               <div>
                 <LazyLoadImage 
-                  src={press} 
+                  src={Press} 
                   alt="Image 2" 
                   effect="blur" // You can choose other effects like "opacity", "black-and-white", etc.
                   height="100%" 
