@@ -6,7 +6,7 @@ import Nailart from '../assets/images/Nailart.jpeg';
 import pedicure from '../assets/images/pedicure.jpeg';
 import colorNails from '../assets/images/ColorNails.jpeg';
 import pedi from '../assets/images/pedi.jpeg';
-import Nicemani from '../assets/images/Nicemani.jpeg';
+import Nicemani from '../assets/images/nicemani.jpeg';
 import ladymani from '../assets/images/ladymani.jpeg';
 import shortpadi from '../assets/images/shortpadi.jpeg';
 import nailmani from '../assets/images/nailmani.jpeg';
