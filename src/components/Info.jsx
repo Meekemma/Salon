@@ -27,7 +27,7 @@ const Info = () => {
   };
 
   return (
-    <div className="mx-auto px-4 my-3 py-2">
+    <div className="mx-auto px-6 my-3 py-2">
       <div className="flex justify-between items-center">
         {/* Left side: Social media icons */}
         <div className="flex items-center space-x-3">
