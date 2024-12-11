@@ -3,24 +3,24 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
 import team from '../assets/images/team.jpeg';
-import angel from '../assets/images/angel.jpg';
+import Angel from '../assets/images/Angel.jpg';
 import jumbo from '../assets/images/jumbo.jpeg';
 import client from '../assets/images/client.jpeg';
 import frenchteam from '../assets/images/frenchteam.jpeg';
 import spalit from '../assets/images/spalit.jpeg';
-import angelwhite from '../assets/images/angelwhite.jpg';
+import AngelWhite from '../assets/images/AngelWhite.jpg';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const TeamGallary = () => {
   const images = [
     { src: team, alt: 'Team Collaboration' },
-    { src: angel, alt: 'Angel Leading the Team' },
+    { src: Angel, alt: 'Angel Leading the Team' },
     { src: jumbo, alt: 'Jumbo Team Meeting' },
     { src: client, alt: 'Client Interaction' },
     { src: frenchteam, alt: 'French Team Discussion' },
     { src: spalit, alt: 'Spalit Team' },
-    { src: angelwhite, alt: 'Angel White Presentation' },
+    { src: AngelWhite, alt: 'Angel White Presentation' },
   ];
 
   return (
