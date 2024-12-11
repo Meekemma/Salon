@@ -4,7 +4,7 @@ import 'swiper/swiper-bundle.css';
 import { Autoplay } from 'swiper/modules';
 import team from '../assets/images/team.jpeg';
 import Angel from '../assets/images/Angel.jpg';
-import jumbo from '../assets/images/jumbo.jpeg';
+import Jumbo from '../assets/images/Jumbo.jpeg';
 import client from '../assets/images/client.jpeg';
 import frenchteam from '../assets/images/frenchteam.jpeg';
 import spalit from '../assets/images/spalit.jpeg';
@@ -16,7 +16,7 @@ const TeamGallary = () => {
   const images = [
     { src: team, alt: 'Team Collaboration' },
     { src: Angel, alt: 'Angel Leading the Team' },
-    { src: jumbo, alt: 'Jumbo Team Meeting' },
+    { src: Jumbo, alt: 'Jumbo Team Meeting' },
     { src: client, alt: 'Client Interaction' },
     { src: frenchteam, alt: 'French Team Discussion' },
     { src: spalit, alt: 'Spalit Team' },
