@@ -33,161 +33,164 @@ a:hover {
     /* color:#333333 Add padding for better spacing */
 }
 
-
+/* Carousel Wrapper */
 .carousel-container {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow:hidden;
-    height: 100vh;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.carousel-image-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* Carousel Image Section */
+.carousel-image-container {
+  max-width: 100%;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.carousel-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text Section */
+.carousel-text-container {
+  max-width: 100%;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.carousel-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  animation: fadeInUp 1s ease-out;
+}
+
+.carousel-description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.carousel-button {
+  border-radius: 50px;
+  color: #c0bdb9;
+  background-color: #1a1b1f;
+  margin: 30px 0;
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #fff;
+  color: #1a1b1f;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  
-  .carousel-image-wrapper {
-    width: 100%;
-    height: 100%; 
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+  .carousel-title {
+    font-size: 50px;
+  }
+
+  .carousel-description {
+    font-size: 20px;
+  }
+
+  .carousel-image-container {
+    max-width: 50%;
+    height: 80vh;
+  }
+
+  .carousel-text-container {
+    max-width: 45%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel-title {
+    font-size: 36px;
+  }
+
+  .carousel-description {
+    font-size: 16px;
+  }
+
+  .carousel-image-container {
+    max-width: 45%;
+  }
+
+  .carousel-text-container {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel-title {
+    font-size: 28px;
+  }
+
+  .carousel-description {
+    font-size: 14px;
+  }
 
   .carousel-image-container {
     max-width: 100%;
-    border-radius: 50px;
-    overflow: hidden; 
-    position: relative;
-    height: 100vh;
-  }
-
-
-  .carousel-image-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Cover the entire image */
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Dark overlay */
-    z-index: 1; /* Overlay above the image */
-    pointer-events: none; /* Allow interaction with underlying content */
-  }
-  
-
-
-  
-  
-  .carousel-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  
-
-  
-  .carousel-text-container {
-    max-width: 100%; /* Allow text to take full width on smaller screens */
-    text-align: left;
-    margin-left: 20px;
-  }
-  
-  .carousel-title {
-    font-size: 40px; /* Start with a base size */
-    font-weight: bold;
     margin-bottom: 20px;
-    line-height: 1.2;
   }
-  
-  .carousel-description {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    
+
+  .carousel-text-container {
+    max-width: 100%;
+    text-align: center;
   }
-  
+
   .carousel-button {
-    border-radius: 50px;
-    color: #c0bdb9;
-    background-color: #1a1b1f;
-    margin: 30px 0;
-    padding: 15px 50px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 30px;
   }
-  
-  .carousel-button:hover {
-    background-color: #0e1014;
-  }
-  
-  /* Media queries for responsiveness */
-  
-  /* Large devices (desktops, laptops) */
-  @media (min-width: 1024px) {
-    .carousel-title {
-      font-size: 50px; /* Larger title on bigger screens */
-    }
-  
-    .carousel-description {
-      font-size: 20px;
-    }
-  
-    .carousel-image-container {
-      max-width: 50%; 
-      height: 80vh;
-    }
-    
-  
-    .carousel-text-container {
-      max-width: 45%; /* Restrict text size on large screens */
-    }
-  }
-  
-  /* Medium devices (tablets) */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .carousel-title {
-      font-size: 36px; /* Slightly smaller for tablet screens */
-    }
-  
-    .carousel-description {
-      font-size: 16px;
-    }
-  
-    .carousel-image-container {
-      max-width: 45%; /* Adjust image size for tablet */
-    }
-  
-    .carousel-text-container {
-      max-width: 45%; /* Adjust text size for tablet */
-    }
-  }
-  
-  /* Small devices (mobile phones) */
-  @media (max-width: 767px) {
-    .carousel-title {
-      font-size: 28px; /* Smaller title for mobile */
-    }
-  
-    .carousel-description {
-      font-size: 14px;
-    }
-  
-    .carousel-image-container {
-      max-width: 100%; /* Image takes full width on small screens */
-      margin-bottom: 20px; /* Add space between image and text */
-    }
-  
-    .carousel-text-container {
-      max-width: 100%; /* Text also takes full width */
-      text-align: center; /* Center align text on small screens */
-    }
-  
-    .carousel-button {
-      padding: 10px 30px; /* Make button slightly smaller for mobile */
-    }
-  }
+}
+
 
   .gallery-section {
     background: linear-gradient(135deg, #0D6E6E, #333333); /* Deep Teal to Charcoal gradient */
