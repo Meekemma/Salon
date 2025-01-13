@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; // Import the base Swiper styles
 import 'swiper/css/navigation'; // Import navigation styles
@@ -9,8 +9,14 @@ import instagram from '../assets/images/instagram.svg';
 import tiktok from '../assets/images/tiktok.svg';
 import whatsapp from '../assets/images/whatsapp.svg';
 import '../styles/main.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Testimonial = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+  }, []); 
+
   const testimonies = [
     { text: 'The service is amazing, I always leave feeling refreshed!', name: 'Bukki.', avatar: facebook, stars: 5 },
     { text: 'A truly fantastic experience, will definitely be back.', name: 'Meekemma.', avatar: whatsapp, stars: 5 },
@@ -33,7 +39,7 @@ const Testimonial = () => {
   return (
     <div className='container test mx-auto px-4 py-8 mt-16 bg-[#FFF5EE]'>
       <div className='flex justify-center'>
-        <div className='text-left lg:text-center'>
+        <div className='text-left lg:text-center' data-aos="fade-up">
           <h1 className='text-5xl font-bold mb-4'>What Our Clients Say</h1>
           <p className='text-base md:px-16 break-words'>
             Our clients' satisfaction is our top priority. Here’s what some of them have to say about their experiences with our services. 
@@ -57,7 +63,7 @@ const Testimonial = () => {
         >
           {testimonies.map((testimony, index) => (
             <SwiperSlide key={index}>
-              <div className='testimonial-card'>
+              <div className='testimonial-card' data-aos="fade-up">
                 <div className='flex items-center'>
                   <img src={testimony.avatar} alt={`${testimony.name}'s avatar`} className='w-16 h-16 mb-4' loading='lazy'/>
                   <div className='ml-4 flex'>

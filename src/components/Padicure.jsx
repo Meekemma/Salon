@@ -15,6 +15,7 @@ import coolmani from '../assets/images/coolmani.jpeg';
 import manpedi from '../assets/images/manpedi.jpeg';
 import mani from '../assets/images/mani.jpeg';
 
+
 const Padicure = () => {
   const manicurePedicureImages = [
     { src: Nailart, alt: 'Elegant nail art with intricate designs' },

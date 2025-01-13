@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules'; // Import Autoplay module
 import 'swiper/swiper-bundle.css';
@@ -9,8 +9,14 @@ import nailtech from '../assets/images/nailtech.jpeg';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import '../styles/main.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CustomeGallery = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+  }, []);
+  
   const images = [Handsome, Nudenails, spaim, nailtech];
 
   const swiperRef = useRef(null);
@@ -25,7 +31,10 @@ const CustomeGallery = () => {
     <div className="mx-auto py-8 px-4 gallery-section text-white">
       <div className="flex flex-wrap justify-between items-center">
         {/* Info section */}
-        <div className="gallery-info w-full lg:w-1/3 pr-0 lg:pr-8 mb-8 lg:mb-0 text-left lg:text-left">
+        <div 
+          className="gallery-info w-full lg:w-1/3 pr-0 lg:pr-8 mb-8 lg:mb-0 text-left lg:text-left"
+          data-aos="fade-right"
+        >
           <h1 className="text-2xl lg:text-3xl font-bold mb-4">Explore Our Creative Masterpieces</h1>
           <p className="mb-4 text-gray-400">
             From stylish haircuts to exquisite nail art, our gallery showcases the artistry and care we put into every service. See what makes us stand out!
@@ -33,7 +42,10 @@ const CustomeGallery = () => {
         </div>
 
         {/* Swiper section */}
-        <div className="gallery-swiper w-full lg:w-2/3 relative">
+        <div 
+          className="gallery-swiper w-full lg:w-2/3 relative"
+          data-aos="fade-left"
+        >
           <Swiper
             ref={swiperRef} // Attach ref to swiper
             modules={[Navigation, Autoplay]} // Added Autoplay module

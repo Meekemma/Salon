@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Import useEffect
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
 import L from 'leaflet';
 import { FaUser, FaEnvelope, FaPhoneAlt, FaRegComment } from 'react-icons/fa';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CustomContact = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+  }, []); // Initialize AOS animations only once when component mounts
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,25 +37,25 @@ const CustomContact = () => {
     });
   };
 
-  const position = [6.4625, 3.6015]; // Business location coordinates
+  const position = [6.4625, 3.6015]; // Coordinates for the marker
 
   // Custom red icon for the marker
   const redIcon = new L.Icon({
     iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-    iconSize: [40, 40], // Marker size
-    iconAnchor: [20, 40], // Center of the icon
-    popupAnchor: [0, -40] // Popup position
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [0, -40]
   });
 
   return (
     <div className="container mx-auto px-8 py-4">
       {/* Contact Us Title */}
-      <h2 className="text-2xl font-bold mb-4 underline sm:text-center text-left">
+      <h2 className="text-2xl font-bold mb-4 underline sm:text-center text-left" data-aos="fade-up">
         Contact Us
       </h2>
 
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto mb-8">
+      <form onSubmit={handleSubmit} className="max-w-lg mx-auto mb-8" data-aos="fade-up">
         {/* Name Field */}
         <div className="mb-4 flex items-center border-b-2 border-gray-300">
           <FaUser className="text-gray-500 mr-2" />
@@ -121,7 +127,7 @@ const CustomContact = () => {
       </form>
 
       {/* Map Section */}
-      <div className="mt-8">
+      <div className="mt-8" data-aos="fade-up">
         <h2 className="text-2xl font-bold mb-4 underline">Find Us Here</h2>
         <MapContainer center={position} zoom={13} scrollWheelZoom={true} className="h-96 rounded-lg shadow-lg">
           <TileLayer

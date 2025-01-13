@@ -6,11 +6,11 @@ body{
 
 }
 body.dark-mode {
-  background: #121212 !important; /* Dark background */
-  color: #ffffff !important; /* Light text color */
+  background: #121212 !important;
+  color: #ffffff !important; 
 }
 h1, h2, h3 {
-  color: #0D6E6E; /* Deep teal for headers */
+  color: #0D6E6E; 
 }
 a {
   color: #C19A6B; /* Gold links */
@@ -255,3 +255,11 @@ button:hover {
 }
 
   
+/* Custom Swiper Pagination Style */
+.swiper-pagination-bullet {
+  background-color: #d1d5db; /* Default color (Tailwind gray-300 equivalent) */
+  opacity: 1; /* Make the bullets fully opaque */
+}
+.swiper-pagination-bullet-active {
+  background-color: #1a1b1f; /* Your desired color */
+}
