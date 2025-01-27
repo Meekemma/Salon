@@ -125,26 +125,62 @@ const Navbar = () => {
           </Box>
 
           {/* Desktop Menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => handleNavigate(page)}
-                sx={{
-                  my: 2,
-                  color: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
-                    ? '#0D6E6E'
-                    : '#333333',
-                  fontWeight: location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
-                    ? 'bold'
-                    : 'normal',
-                  display: 'block',
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+          {/* Desktop Menu */}
+<Box
+  component="nav" // Semantic navigation element
+  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}
+>
+  <Box
+    component="ul" // Use a list for semantic structure
+    sx={{
+      listStyle: 'none', // Remove default list styling
+      display: 'flex',
+      gap: 2, // Add spacing between list items
+      padding: 0,
+      margin: 0,
+    }}
+  >
+    {pages.map((page) => (
+      <Box
+        component="li" // List item
+        key={page}
+        sx={{
+          my: 2,
+        }}
+      >
+        <Box
+          component="a" // Use an anchor tag for navigation
+          href={page === 'Home' ? '/' : `/${page.toLowerCase()}`}
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleNavigate(page); // Use your custom navigation handler
+          }}
+          sx={{
+            color:
+              location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
+                ? '#0D6E6E' // Active color
+                : '#333333', // Default color
+            fontWeight:
+              location.pathname === `/${page.toLowerCase()}` || (page === 'Home' && location.pathname === '/')
+                ? 'bold' // Active font weight
+                : 'normal', // Default font weight
+            textDecoration: 'none', // Remove underline
+            display: 'block',
+            padding: '8px 16px', // Add padding for better click area
+            borderRadius: '4px', // Optional: Add rounded corners
+            transition: 'color 0.3s ease, background-color 0.3s ease', // Smooth transitions
+            '&:hover': {
+              color: '#0D6E6E', // Hover color
+              backgroundColor: 'rgba(13, 110, 110, 0.1)', // Optional: Light background on hover
+            },
+          }}
+        >
+          {page}
+        </Box>
+      </Box>
+    ))}
+  </Box>
+</Box>
 
           {/* Right side: Book Us button for larger screens */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>

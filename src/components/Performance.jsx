@@ -16,7 +16,7 @@ const Performance = () => {
   }, []);
 
   return (
-    <div className="container test mx-auto py-8 px-4 mt-8 bg-[#FFF5EE]">
+    <div className="container testy mx-auto py-8 px-4 mt-8 bg-[#FFF5EE]">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {metrics.map((metric, index) => (
           <div
@@ -25,7 +25,7 @@ const Performance = () => {
             data-aos="fade-up"
           >
             <h1 className="text-3xl sm:text-4xl font-bold">{metric.value}</h1>
-            <h2 className="text-sm sm:text-base text-gray-600 mt-2">
+            <h2 className="text-sm sm:text-base mt-2">
               {metric.description}
             </h2>
           </div>
