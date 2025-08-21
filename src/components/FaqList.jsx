@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import "../styles/main.css";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "../styles/main.css"; 
 
 const FaqList = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+    AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
   }, []);
+
   const faqs = [
     { question: "What are your salon hours?", answer: "We are open from 9 AM to 8 PM, Monday to Sunday." },
     { question: "Do you accept walk-ins?", answer: "Yes, we accept walk-ins, but appointments are preferred." },
@@ -20,8 +21,8 @@ const FaqList = () => {
     { question: "Are your services gender-specific?", answer: "No, our services are available for all genders." },
   ];
 
-  const [visibleFaqs, setVisibleFaqs] = useState(Array(5).fill(false)); 
-  const [showAll, setShowAll] = useState(false); 
+  const [visibleFaqs, setVisibleFaqs] = useState(Array(5).fill(false));
+  const [showAll, setShowAll] = useState(false);
 
   const toggleVisibility = (index) => {
     setVisibleFaqs((prev) =>
@@ -32,30 +33,66 @@ const FaqList = () => {
   const toggleShowMore = () => {
     setShowAll((prev) => !prev);
     setVisibleFaqs((prev) => {
-      // If Show More clicked, make all FAQs visible; if Show Less clicked, show only 5 FAQs
       return prev.length === faqs.length
-        ? Array(5).fill(false)  // Reset to 5 closed questions
-        : Array(faqs.length).fill(false);  // Keep all questions closed
+        ? Array(5).fill(false)
+        : Array(faqs.length).fill(false);
     });
   };
 
+  // ✅ SEO: JSON-LD Structured Data for FAQ
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer,
+        },
+      })),
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [faqs]);
+
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Frequently Asked Questions</h1>
+    <section className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">
+        Frequently Asked Questions
+      </h1>
       <div className="bg-white rounded-lg shadow-lg p-4" data-aos="fade-up">
         <ul>
           {faqs.slice(0, showAll ? faqs.length : 5).map((faq, idx) => (
             <li key={idx} className="mb-4" data-aos="fade-up">
               <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-lg">{faq.question}</h3>
+                {/* ✅ More visible & semantic question */}
+                <h2 className="font-semibold text-lg text-gray-600">
+                  {faq.question}
+                </h2>
                 <button
                   onClick={() => toggleVisibility(idx)}
-                  className="text-xl text-gray-600 hover:bg-transparent"
+                  aria-expanded={visibleFaqs[idx]}
+                  aria-controls={`faq-answer-${idx}`}
+                  className="text-xl text-gray-700 hover:text-black transition"
                 >
                   {visibleFaqs[idx] ? <FaMinus /> : <FaPlus />}
                 </button>
               </div>
-              {visibleFaqs[idx] && <p className="ml-6 mt-2">{faq.answer}</p>}
+              {visibleFaqs[idx] && (
+                <p
+                  id={`faq-answer-${idx}`}
+                  className="ml-6 mt-2 text-gray-600 leading-relaxed"
+                >
+                  {faq.answer}
+                </p>
+              )}
             </li>
           ))}
         </ul>
@@ -67,7 +104,7 @@ const FaqList = () => {
           {showAll ? "Show Less" : "Show More"}
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,8 +10,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import '../styles/main.css';
-import angel from '../assets/images/Angel.jpg';
+import '../../styles/main.css';
+import angel from '../../assets/images/Angel.jpg';
 
 const pages = ['Home', 'About', 'Services', 'Contact'];
 
@@ -64,12 +64,13 @@ const Navbar = () => {
               alt="Angel Logo"
               loading="lazy"
               style={{
-                height: '90px', // Default height for larger screens
+                height: '60px', // Reduced height for larger screens
                 width: 'auto',
                 borderRadius: '8px',
               }}
               className="responsive-logo" // Class for custom responsive behavior
             />
+
           </Typography>
 
           {/* Responsive Menu for smaller screens */}

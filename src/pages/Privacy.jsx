@@ -1,6 +1,6 @@
 import React from 'react'
-import Info from '../components/Info'
-import Navbar from '../components/Navbar'
+import Info from '../components/Home/Info'
+import Navbar from '../components/Home/Navbar'
 import Footer from '../components/Footer'
 import PrivacyPolicy from '../components/PrivacyPolicy'
 

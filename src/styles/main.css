@@ -383,3 +383,16 @@ body.dark-mode .bg-white.rounded-lg.shadow-lg.p-4 {
 .swiper-pagination-bullet-active {
   background-color: #000000; 
 }
+
+
+.responsive-logo {
+  height: 70px;
+  width: auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .responsive-logo {
+    height: 45px; /* Reduced height for mobile */
+  }
+}
