@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Import useEffect
+import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 const CustomContact = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
-  }, []); // Initialize AOS animations only once when component mounts
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,35 +29,48 @@ const CustomContact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted', formData);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
-  const position = [6.4625, 3.6015]; // Coordinates for the marker
+  // Two locations
+  const locations = [
+    {
+      label: 'Main Branch',
+      coords: [6.4693, 3.3029],
+      address: 'Swiss Park Mall, Opposite Unity Estate, Amuwo Odofin, Festac, Lagos, Nigeria',
+      googleMaps: 'https://goo.gl/maps/LF8a6rF1w6Y2',
+    },
+    {
+      label: 'Festac Branch',
+      coords: [6.4732, 3.2932], // example coordinates for Festac Branch
+      address: 'Swiss Park Hotel, 12 Road, Festac, Lagos',
+      googleMaps: 'https://goo.gl/maps/XYZ123',
+    },
+  ];
 
-  // Custom red icon for the marker
+  // Custom red icon
   const redIcon = new L.Icon({
     iconUrl: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
     iconSize: [40, 40],
     iconAnchor: [20, 40],
-    popupAnchor: [0, -40]
+    popupAnchor: [0, -40],
   });
 
   return (
-    <div className="container mx-auto px-8 py-4">
-      {/* Contact Us Title */}
-      <h2 className="text-2xl font-bold mb-4 underline sm:text-center text-left" data-aos="fade-up">
+    <section className="container mx-auto px-6 sm:px-12 py-10">
+      {/* Contact Form */}
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-gray-800" data-aos="fade-up">
         Contact Us
       </h2>
 
-      {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="max-w-lg mx-auto mb-8" data-aos="fade-up">
-        {/* Name Field */}
-        <div className="mb-4 flex items-center border-b-2 border-gray-300">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 space-y-6"
+        data-aos="fade-up"
+      >
+        {/* Name */}
+        <label htmlFor="name" className="block text-sm font-semibold text-gray-600">Full Name</label>
+        <div className="flex items-center border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-yellow-500">
           <FaUser className="text-gray-500 mr-2" />
           <input
             type="text"
@@ -67,12 +80,13 @@ const CustomContact = () => {
             onChange={handleChange}
             required
             placeholder="Enter your full name"
-            className="w-full px-4 py-2 focus:outline-none focus:border-yellow-500"
+            className="w-full px-2 py-1 outline-none"
           />
         </div>
 
-        {/* Email Field */}
-        <div className="mb-4 flex items-center border-b-2 border-gray-300">
+        {/* Email */}
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-600">Email Address</label>
+        <div className="flex items-center border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-yellow-500">
           <FaEnvelope className="text-gray-500 mr-2" />
           <input
             type="email"
@@ -81,13 +95,14 @@ const CustomContact = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            placeholder="Enter your email address"
-            className="w-full px-4 py-2 focus:outline-none focus:border-yellow-500"
+            placeholder="Enter your email"
+            className="w-full px-2 py-1 outline-none"
           />
         </div>
 
-        {/* Phone Field */}
-        <div className="mb-4 flex items-center border-b-2 border-gray-300">
+        {/* Phone */}
+        <label htmlFor="phone" className="block text-sm font-semibold text-gray-600">Phone Number</label>
+        <div className="flex items-center border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-yellow-500">
           <FaPhoneAlt className="text-gray-500 mr-2" />
           <input
             type="tel"
@@ -96,13 +111,14 @@ const CustomContact = () => {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Enter your phone number"
-            className="w-full px-4 py-2 focus:outline-none focus:border-yellow-500"
+            className="w-full px-2 py-1 outline-none"
           />
         </div>
 
-        {/* Message Field */}
-        <div className="mb-4 flex items-center border-b-2 border-gray-300">
-          <FaRegComment className="text-gray-500 mr-2" />
+        {/* Message */}
+        <label htmlFor="message" className="block text-sm font-semibold text-gray-600">Message</label>
+        <div className="flex items-start border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-yellow-500">
+          <FaRegComment className="text-gray-500 mt-1 mr-2" />
           <textarea
             id="message"
             name="message"
@@ -110,39 +126,47 @@ const CustomContact = () => {
             onChange={handleChange}
             required
             rows="4"
-            placeholder="Write your message here"
-            className="w-full px-4 py-2 focus:outline-none focus:border-yellow-500"
+            placeholder="Write your message here..."
+            className="w-full px-2 py-1 outline-none resize-none"
           />
         </div>
 
         {/* Submit Button */}
-        <div className="text-center">
-          <button
-            type="submit"
-            className="w-full px-6 py-2 bg-gold text-white rounded-full hover:bg-deep-teal focus:outline-none carousel-button"
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="w-full py-3 text-lg font-semibold bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition transform hover:scale-105 shadow-md"
+        >
+          Send Message
+        </button>
       </form>
 
       {/* Map Section */}
-      <div className="mt-8" data-aos="fade-up">
-        <h2 className="text-2xl font-bold mb-4 underline">Find Us Here</h2>
-        <MapContainer center={position} zoom={13} scrollWheelZoom={true} className="h-96 rounded-lg shadow-lg">
+      <div className="mt-12" data-aos="fade-up">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Find Us Here</h2>
+        <MapContainer
+          center={[6.4693, 3.3029]}
+          zoom={13}
+          scrollWheelZoom={true}
+          className="h-96 rounded-xl shadow-lg border"
+        >
           <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+            subdomains={['a','b','c']}
           />
-          <Marker position={position} icon={redIcon}>
-            <Popup>
-              We are located here! <br />
-              Block A3, Office 471, Eastland Complex, Abraham Adesanya, Lekki-Ajah, Lagos, Nigeria.
-            </Popup>
-          </Marker>
+          {locations.map((loc, idx) => (
+            <Marker key={idx} position={loc.coords} icon={redIcon}>
+              <Popup>
+                <strong>{loc.label}</strong> <br />
+                <a href={loc.googleMaps} target="_blank" rel="noopener noreferrer" className="underline">
+                  {loc.address}
+                </a>
+              </Popup>
+            </Marker>
+          ))}
         </MapContainer>
       </div>
-    </div>
+    </section>
   );
 };
 

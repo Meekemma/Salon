@@ -50,11 +50,11 @@ const Info = () => {
         {/* Contact & Mode Toggle */}
         <div className="flex items-center space-x-5">
           <a
-            href="tel:+1234567890"
+            href="tel:+234 703 001 7113"
             className="flex items-center space-x-2 hover:text-blue-500 transition"
           >
             <Phone style={{ fontSize: "18px" }} />
-            <span className="text-sm font-medium">+123 456 7890</span>
+            <span className="text-sm font-medium">+234 703 001 7113</span>
           </a>
 
           <button

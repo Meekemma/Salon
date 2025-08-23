@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Home/Navbar'
 import Footer from '../components/Footer'
 import Info from '../components/Home/Info'
-import CustomServices from '../components/CustomServices'
+import CustomServices from '../components/Service/CustomServices'
 
 
 

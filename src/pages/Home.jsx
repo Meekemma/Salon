@@ -3,12 +3,12 @@ import Info from '../components/Home/Info'
 import Navbar from '../components/Home/Navbar'
 import MyCarousel  from '../components/Home/MyCarousel'
 import CustomeGallery from '../components/Home/CustomeGallery'
-import Performance from '../components/Performance'
-import Testimonial from '../components/Testimonial'
+import Performance from '../components/Home/Performance'
+import Testimonial from '../components/Home/Testimonial'
 import Footer from '../components/Footer'
-import TeamGallary from '../components/TeamGallary'
-import PriceList from '../components/PriceList'
-import FaqList from '../components/FaqList'
+import TeamGallary from '../components/Home/TeamGallary'
+import PriceList from '../components/Home/PriceList'
+import FaqList from '../components/Home/FaqList'
 
 
 const Home = () => {

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../styles/main.css";
+import "../../styles/main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

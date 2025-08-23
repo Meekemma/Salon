@@ -7,13 +7,13 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Images
-import team from '../assets/images/team.jpeg';
-import Angel from '../assets/images/Angel.jpg';
-import Jumbo from '../assets/images/Jumbo.jpeg';
-import client from '../assets/images/client.jpeg';
-import frenchteam from '../assets/images/Frenchteam.jpeg';
-import spalit from '../assets/images/spalit.jpeg';
-import AngelWhite from '../assets/images/AngelWhite.jpg';
+import team from '../../assets/images/team.jpeg';
+import Angel from '../../assets/images/Angel.jpg';
+import Jumbo from '../../assets/images/Jumbo.jpeg';
+import client from '../../assets/images/client.jpeg';
+import frenchteam from '../../assets/images/Frenchteam.jpeg';
+import spalit from '../../assets/images/spalit.jpeg';
+import AngelWhite from '../../assets/images/AngelWhite.jpg';
 
 const TeamGallary = () => {
   const images = [

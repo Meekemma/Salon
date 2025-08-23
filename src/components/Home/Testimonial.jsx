@@ -6,10 +6,10 @@ import { Navigation } from "swiper/modules";
 import { FaStar } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../styles/main.css";
+import "../../styles/main.css";
 
 // ✅ Example local avatars (replace with real team/client images in /assets/images/)
-import client from "../assets/images/aFRO.jpeg";
+import client from "../../assets/images/aFRO.jpeg";
 // import client2 from "../assets/images/client2.jpg";
 // import client3 from "../assets/images/client3.jpg";
 // import client4 from "../assets/images/client4.jpg";

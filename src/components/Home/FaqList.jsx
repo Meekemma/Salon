@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import "../styles/main.css"; 
+import "../../styles/main.css"; 
 
 const FaqList = () => {
   useEffect(() => {

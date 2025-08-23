@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaMoneyBillWave, FaUniversity, FaCreditCard } from 'react-icons/fa'; // Payment method icons
+import { FaMoneyBillWave, FaUniversity, FaCreditCard, FaMapMarkerAlt } from 'react-icons/fa'; // Payment + map icons
 import facebook from '../assets/images/facebook.svg';
 import instagram from '../assets/images/instagram.svg';
 import tiktok from '../assets/images/tiktok.svg';
@@ -28,32 +28,38 @@ const Footer = () => {
     { name: 'Privacy Policy', path: '/privacy-policy' },
   ];
 
-  const contactDetails = {
-    phone: '+123 456 7890',
-    email: 'info@store.com',
-    address: '123 Main Street, City, Country',
-  };
+  // Each branch with coordinates for Google Maps
+  const contactDetails = [
+    {
+      label: 'Main Branch',
+      address: 'Swiss Park Mall, Opposite Unity Estate, Amuwo Odofin, Festac, Lagos, Nigeria',
+      mapsLink: 'https://www.google.com/maps?q=6.4693,3.3029',
+    },
+    {
+      label: 'Festac Branch',
+      address: 'Swiss Park Hotel, 12 Road, Festac, Lagos',
+      mapsLink: 'https://www.google.com/maps?q=6.4732, 3.2932',
+    },
+  ];
 
   const navigate = useNavigate();
-
-  const handleNavigate = (path) => {
-    navigate(path);
-  };
+  const handleNavigate = (path) => navigate(path);
 
   return (
     <footer className="bg-gray-900 text-white py-8" role="contentinfo">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Footer Content */}
+        {/* Footer Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-center sm:text-left">
+          
           {/* Company Info */}
           <div>
             <img 
               src={angel} 
               alt="Angel De Whyte Unisex Salon logo" 
               loading="lazy"
-              className="rounded-lg"
+              className="rounded-lg mb-3"
             />
-            <p className="text-base mb-4 pt-3">
+            <p className="text-base mb-4">
               Angel De Whyte Unisex Salon provides premium haircuts, manicures, pedicures, and nail polishing services for everyone.
             </p>
             <div className="flex justify-center sm:justify-start space-x-4">
@@ -91,12 +97,24 @@ const Footer = () => {
           <div>
             <h2 className="text-lg font-bold mb-4">Contact Us</h2>
             <p className="text-base">
-              Phone: <a href={`tel:${contactDetails.phone}`} className="underline">{contactDetails.phone}</a>
+              Phone: <a href="tel:+1237030017113" className="underline">+123 703 001 7113</a>
             </p>
             <p className="text-base">
-              Email: <a href={`mailto:${contactDetails.email}`} className="underline">{contactDetails.email}</a>
+              Email: <a href="mailto:angeldewhyteunisexsalon1@gmail.com" className="underline">angeldewhyteunisexsalon1@gmail.com</a>
             </p>
-            <p className="text-base">Address: {contactDetails.address}</p>
+            {contactDetails.map((branch, idx) => (
+              <p key={idx} className="text-base">
+                <strong>{branch.label}:</strong> {branch.address}{" "}
+                <a 
+                  href={branch.mapsLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-yellow-400 hover:underline ml-1"
+                >
+                  <FaMapMarkerAlt className="mr-1" /> View on Map
+                </a>
+              </p>
+            ))}
           </div>
 
           {/* Operating Hours */}
@@ -128,9 +146,9 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <span className="text-base">Accepted Payments:</span>
             <div className="flex space-x-4 text-lg">
-              <span className="flex items-center space-x-1"><FaMoneyBillWave aria-hidden="true" /> <span>Cash</span></span>
-              <span className="flex items-center space-x-1"><FaUniversity aria-hidden="true" /> <span>Bank Transfer</span></span>
-              <span className="flex items-center space-x-1"><FaCreditCard aria-hidden="true" /> <span>Cards</span></span>
+              <span className="flex items-center space-x-1"><FaMoneyBillWave /> <span>Cash</span></span>
+              <span className="flex items-center space-x-1"><FaUniversity /> <span>Bank Transfer</span></span>
+              <span className="flex items-center space-x-1"><FaCreditCard /> <span>Cards</span></span>
             </div>
           </div>
         </div>

@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import salon from '../assets/images/man.jpg'; // Importing the salon image
-import Spinner from './Spinner'; // Make sure Spinner component is imported
+import salon from "../assets/images/man.jpg"; // Importing the salon image
+import Spinner from "./Spinner"; // Spinner component
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     service: "",
-    date: "",
-    time: "",
   });
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,94 +21,113 @@ const BookingForm = () => {
   };
 
   const handleSubmit = () => {
-    const { name, phone, service, date, time } = formData;
+    const { name, phone, service } = formData;
 
-    // Clear previous error
     setError("");
-    setIsLoading(true); // Start loading when the form is submitted
+    setIsLoading(true);
 
-    // Current date and time
+    if (!name || !phone || !service || !selectedDate || !selectedTime) {
+      setError("⚠️ All fields are required");
+      setTimeout(() => {
+        setError("");
+        setIsLoading(false);
+      }, 3000);
+      return;
+    }
+
     const now = new Date();
-    const selectedDateTime = new Date(`${date}T${time}`);
-    
-    // Validation checks
-    if (!name || !phone || !service || !date || !time) {
-      setError("All fields are required");
+    const combinedDateTime = new Date(selectedDate);
+    combinedDateTime.setHours(selectedTime.getHours());
+    combinedDateTime.setMinutes(selectedTime.getMinutes());
+
+    if (combinedDateTime < now) {
+      setError("⚠️ You cannot pick a past date or time!");
       setTimeout(() => {
         setError("");
-        setIsLoading(false); // Stop loading if there's an error
+        setIsLoading(false);
       }, 3000);
       return;
     }
 
-    if (selectedDateTime < now) {
-      setError("You cannot pick a past date or time!");
-      setTimeout(() => {
-        setError("");
-        setIsLoading(false); // Stop loading if there's an error
-      }, 3000);
-      return;
-    }
+    const formattedDate = selectedDate.toLocaleDateString();
+    const formattedTime = selectedTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
-    // Create WhatsApp URL
-    const message = `*Hello! I'd like to book an appointment*.\nName: ${formData.name}\nPhone: ${formData.phone}\nService: ${formData.service}\nDate: ${formData.date}\nTime: ${formData.time}`;
-    const whatsappUrl = `https://wa.me/2349076309004?text=${encodeURIComponent(message)}`;
+    const message = `*Hello! I'd like to book an appointment*.\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${formattedDate}\nTime: ${formattedTime}`;
+    const whatsappUrl = `https://wa.me/2349076309004?text=${encodeURIComponent(
+      message
+    )}`;
 
-    // Open WhatsApp link
     window.open(whatsappUrl, "_blank");
 
-    // Reset the form after submission
     setFormData({
       name: "",
       phone: "",
       service: "",
-      date: "",
-      time: "",
     });
+    setSelectedDate(null);
+    setSelectedTime(null);
 
-    // Stop loading after the process
     setIsLoading(false);
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-start container px-4 py-8 gap-10">
-      {/* Salon image section */}
-      <div className="flex justify-center w-full md:w-1/2 mt-0 md:mt-0">
-        <img src={salon} alt="Salon" className="w-full max-w-md h-auto rounded-lg shadow-md"  loading="lazy"/>
+    <section
+      id="booking"
+      className="flex flex-col md:flex-row items-start container px-4 py-12 gap-10"
+    >
+      {/* Salon image */}
+      <div className="flex justify-center w-full md:w-1/2">
+        <img
+          src={salon}
+          alt="Luxury salon interior for appointments"
+          className="w-full max-w-md h-auto rounded-xl shadow-lg object-cover"
+          loading="lazy"
+        />
       </div>
 
-      {/* Booking form section */}
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/2">
-        {/* Guide Text */}
+      {/* Booking form */}
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-full md:w-1/2">
+        {/* Guide */}
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-teal-600 mb-4">How to Book Your Appointment</h3>
-          <p className="text-lg text-gray-600">
-            Follow the steps below to easily book an appointment with us:
+          <h3 className="text-2xl font-bold text-teal-700 mb-4">
+            How to Book Your Appointment
+          </h3>
+          <p className="text-gray-600">
+            Follow these simple steps to schedule your service:
           </p>
-          <ol className="list-decimal list-inside text-gray-600 mt-4">
-            <li className="mb-2">Fill in your name and phone number for us to contact you.</li>
-            <li className="mb-2">Choose the service you'd like to book (e.g., Haircut or Manicure).</li>
-            <li className="mb-2">Pick your preferred date and time for the appointment.</li>
-            <li className="mb-2">Click "Submit" to send your details directly to us via WhatsApp.</li>
-            <li className="mb-2">We will confirm your appointment as soon as possible.</li>
+          <ol className="list-decimal list-inside text-gray-600 mt-3 space-y-2">
+            <li>Enter your name and phone number.</li>
+            <li>Select the service you’d like (Salon or Home service).</li>
+            <li>Choose your preferred date and time.</li>
+            <li>Click "Submit" to send your details via WhatsApp.</li>
+            <li>We’ll confirm your appointment shortly.</li>
           </ol>
         </div>
 
-        <h2 className="text-2xl font-semibold text-center text-teal-600 mb-6">Book an Appointment</h2>
+        <h2 className="text-3xl font-semibold text-center text-teal-700 mb-6">
+          Book an Appointment
+        </h2>
 
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+        {error && (
+          <p className="text-red-500 text-center mb-4 font-medium">{error}</p>
+        )}
 
-        <form className="space-y-4">
+        <form className="space-y-5">
+          {/* Name */}
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Your Full Name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
-          
+
+          {/* Phone */}
           <input
             type="tel"
             name="phone"
@@ -114,64 +135,99 @@ const BookingForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+            pattern="[0-9]{10,15}"
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
           />
-          
+
+          {/* Service */}
           <select
             name="service"
             value={formData.service}
             onChange={handleChange}
             required
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
           >
             <option value="">Select Service</option>
             <optgroup label="In-Salon Services">
-              <option value="haircut">Haircut</option>
-              <option value="nail-polish">Nail Polish</option>
-              <option value="manicure">Manicure</option>
-              <option value="pedicure">Pedicure</option>
-              <option value="spa">Spa</option>
+              <option value="Haircut">Haircut</option>
+              <option value="Nail Polish">Nail Polish</option>
+              <option value="Manicure">Manicure</option>
+              <option value="Pedicure">Pedicure</option>
+              <option value="Spa">Spa</option>
             </optgroup>
             <optgroup label="Home Services">
-              <option value="home-haircut">Home Service Haircut</option>
-              <option value="home-polish">Home Service Polish</option>
-              <option value="home-manicure">Home Service Manicure</option>
-              <option value="home-pedicure">Home Service Pedicure</option>
-              <option value="home-spa">Home Service Spa</option>
+              <option value="Home Haircut">Home Service Haircut</option>
+              <option value="Home Polish">Home Service Polish</option>
+              <option value="Home Manicure">Home Service Manicure</option>
+              <option value="Home Pedicure">Home Service Pedicure</option>
+              <option value="Home Spa">Home Service Spa</option>
             </optgroup>
           </select>
 
-          
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
-          
-          <input
-            type="time"
-            name="time"
-            value={formData.time}
-            onChange={handleChange}
-            required
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
-          />
-          
+          {/* Date Picker */}
+          <div>
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="MMMM d, yyyy"
+              minDate={new Date()}
+              placeholderText="Pick a date"
+              className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
+            />
+          </div>
+
+          {/* Time Picker */}
+          <div>
+            <DatePicker
+              selected={selectedTime}
+              onChange={(time) => setSelectedTime(time)}
+              showTimeSelect
+              showTimeSelectOnly
+              timeIntervals={30}
+              timeCaption="Time"
+              dateFormat="h:mm aa"
+              placeholderText="Pick a time"
+              className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              required
+            />
+          </div>
+
+          {/* Submit */}
           <button
             type="button"
             onClick={handleSubmit}
-            className="w-full py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            className="w-full py-4 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all"
           >
-            {isLoading ? (
-              <Spinner size={20} color="#ffffff" />
-            ) : ("Submit")}
+            {isLoading ? <Spinner size={20} color="#ffffff" /> : "Submit"}
           </button>
         </form>
       </div>
-    </div>
+
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            serviceType: "Salon Appointment Booking",
+            provider: {
+              "@type": "Organization",
+              name: "Your Salon Name",
+              url: "https://yourwebsite.com",
+              logo: "https://yourwebsite.com/logo.png",
+            },
+            areaServed: {
+              "@type": "Place",
+              name: "Nigeria",
+            },
+            description:
+              "Book salon and home services including haircut, manicure, pedicure, spa, and more. Fast, reliable, and professional.",
+          }),
+        }}
+      />
+    </section>
   );
 };
 
