@@ -141,17 +141,24 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Payment Methods */}
+       {/* Payment Methods */}
         <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <span className="text-base">Accepted Payments:</span>
-            <div className="flex space-x-4 text-lg">
-              <span className="flex items-center space-x-1"><FaMoneyBillWave /> <span>Cash</span></span>
-              <span className="flex items-center space-x-1"><FaUniversity /> <span>Bank Transfer</span></span>
-              <span className="flex items-center space-x-1"><FaCreditCard /> <span>Cards</span></span>
+          <div className="flex flex-col sm:flex-row items-center sm:space-x-4 space-y-2 sm:space-y-0">
+            <span className="text-sm sm:text-base">Accepted Payments:</span>
+            <div className="flex space-x-3 sm:space-x-4 text-sm sm:text-lg">
+              <span className="flex items-center space-x-1">
+                <FaMoneyBillWave className="text-base sm:text-lg" /> <span>Cash</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <FaUniversity className="text-base sm:text-lg" /> <span>Bank Transfer</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <FaCreditCard className="text-base sm:text-lg" /> <span>Cards</span>
+              </span>
             </div>
           </div>
         </div>
+
 
         {/* Copyright */}
         <div className="mt-4 text-center text-base text-gray-400">
