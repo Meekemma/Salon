@@ -8,10 +8,12 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import PageNotFound from './pages/PageNotFound';
 import Booking from './pages/Booking';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+       <ScrollToTop />
       <Routes> 
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
